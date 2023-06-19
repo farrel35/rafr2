@@ -7,7 +7,7 @@ class Admin extends CI_Controller {
     public function index()
     {
         $data = array(
-            'title' => 'Admin',
+            'title' => 'Dashboard',
             'isi' => 'v_admin'
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);

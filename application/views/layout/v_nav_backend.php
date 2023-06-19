@@ -50,12 +50,22 @@
                  </li>
                  <li class="nav-item">
                      <a href="<?= base_url('barang') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'barang') {
-                                                                            echo "active";
-                                                                        } ?>">
+                                                                                echo "active";
+                                                                            } ?>">
                          <i class="nav-icon fas fa-cubes"></i>
                          <p>Barang</p>
                      </a>
                  </li>
+
+                 <li class="nav-item">
+                     <a href="<?= base_url('imagebarang') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'imagebarang') {
+                                                                                    echo "active";
+                                                                                } ?>">
+                         <i class="nav-icon fas fa-image"></i>
+                         <p>Image Barang</p>
+                     </a>
+                 </li>
+
                  <li class="nav-item">
                      <a href="#" class="nav-link">
                          <i class="nav-icon fas fa-tachometer-alt"></i>
