@@ -50,7 +50,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="text-left">
-                                        <h4><span class="badge bg-primary">Rp. <?= number_format($value->harga, 0) ?></span></h4>
+                                        <h4><span class="badge bg-primary">Rp <?= number_format($value->harga, 0) ?></span></h4>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">

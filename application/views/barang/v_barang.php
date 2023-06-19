@@ -40,7 +40,7 @@
                             <td class="text-center"><?= $no++; ?></td>
                             <td><?= $value->nama_barang; ?></td>
                             <td class="text-center"><?= $value->nama_kategori; ?></td>
-                            <td class="text-center">Rp. <?= number_format($value->harga, 0); ?></td>
+                            <td class="text-center">Rp <?= number_format($value->harga, 0); ?></td>
                             <td class="text-center"><?= $value->deskripsi; ?></td>
                             <td class="text-center"><img src="<?= base_url('assets/image/' . $value->image) ?>" width="150px"></td>
                             <td class="text-center">
