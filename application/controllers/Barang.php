@@ -53,6 +53,14 @@ class Barang extends CI_Controller
             )
         );
         $this->form_validation->set_rules(
+            'berat',
+            'Berat Barang',
+            'required',
+            array(
+                'required' => '%s Harus diisi!'
+            )
+        );
+        $this->form_validation->set_rules(
             'deskripsi',
             'Deskripsi Barang',
             'required',
@@ -84,6 +92,7 @@ class Barang extends CI_Controller
                     'nama_barang' => $this->input->post('nama_barang'),
                     'id_kategori' => $this->input->post('id_kategori'),
                     'harga' => $this->input->post('harga'),
+                    'berat' => $this->input->post('berat'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'image' => $upload_data['uploads']['file_name'],
                 );
@@ -123,6 +132,14 @@ class Barang extends CI_Controller
         $this->form_validation->set_rules(
             'harga',
             'Harga Barang',
+            'required',
+            array(
+                'required' => '%s Harus diisi!'
+            )
+        );
+        $this->form_validation->set_rules(
+            'berat',
+            'Berat Barang',
             'required',
             array(
                 'required' => '%s Harus diisi!'
@@ -169,6 +186,7 @@ class Barang extends CI_Controller
                     'nama_barang' => $this->input->post('nama_barang'),
                     'id_kategori' => $this->input->post('id_kategori'),
                     'harga' => $this->input->post('harga'),
+                    'berat' => $this->input->post('berat'),
                     'deskripsi' => $this->input->post('deskripsi'),
                     'image' => $upload_data['uploads']['file_name'],
                 );
@@ -182,6 +200,7 @@ class Barang extends CI_Controller
                 'nama_barang' => $this->input->post('nama_barang'),
                 'id_kategori' => $this->input->post('id_kategori'),
                 'harga' => $this->input->post('harga'),
+                'berat' => $this->input->post('berat'),
                 'deskripsi' => $this->input->post('deskripsi'),
             );
             $this->m_barang->edit($data);
