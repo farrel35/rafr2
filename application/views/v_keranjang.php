@@ -3,6 +3,17 @@
         <div class="row">
             <div class="col-sm-12">
                 <?php
+                if ($this->session->flashdata('pesan')) {
+                    echo '<div class="alert alert-success alert-dismissible">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+				<h5><i class="icon fas fa-check"></i>';
+                    echo $this->session->flashdata('pesan');
+                    echo '</h5></div>';
+                }
+                ?>
+            </div>
+            <div class="col-sm-12">
+                <?php
 
                 echo form_open('keranjang/update'); ?>
 
@@ -58,7 +69,7 @@
                     <div class="col-sm-4">
                         <button type="submit" class="btn btn-success btn-flat"><i class="fa fa-save"></i> Update Cart</button>
                         <a href="<?= base_url('keranjang/clear') ?>" class="btn btn-danger btn-flat"><i class="fa fa-recycle"></i> Clear Cart</a>
-                        <a href="<?= base_url('keranjang/checkout')?>" class="btn btn-primary btn-flat"><i class="fa fa-check-square"></i> Checkout</a>
+                        <a href="<?= base_url('keranjang/checkout') ?>" class="btn btn-primary btn-flat"><i class="fa fa-check-square"></i> Checkout</a>
                     </div>
                 </div>
                 <?php form_close() ?>
