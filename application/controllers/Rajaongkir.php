@@ -77,7 +77,7 @@ class Rajaongkir extends CI_Controller
 
             echo "<option value=''>--Pilih Kota--</option>";
             foreach ($data_kota as $key => $value) {
-                echo "<option value='" . $value["city_id"] . "'> " . $value["city_name"] . "</option>";
+                echo "<option value='" . $value["city_id"] . "'> " . $value["type"] . " " . $value["city_name"] . "</option>";
             }
         }
     }
