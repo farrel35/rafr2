@@ -118,6 +118,12 @@
                             </select>
                         </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
                 </div>
             </address>
         </div>
@@ -135,11 +141,11 @@
                     </tr>
                     <tr>
                         <th>Ongkos Kirim:</th>
-                        <td><label>0</label></td>
+                        <td><label id="ongkir">0</label></td>
                     </tr>
                     <tr>
                         <th>Total Bayar:</th>
-                        <td><label>0</label></td>
+                        <td><label id="total_bayar">0</label></td>
                     </tr>
                 </table>
             </div>
@@ -151,7 +157,7 @@
     <!-- this row will not appear when printing -->
     <div class="row no-print">
         <div class="col-12">
-            <a href="<?= base_url('keranjang')?>" rel="noopener" class="btn btn-success"><i class="fas fa-backward"></i> Kembali</a>
+            <a href="<?= base_url('keranjang') ?>" rel="noopener" class="btn btn-success"><i class="fas fa-backward"></i> Kembali</a>
             <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
                 <i class="far fa-credit-card"></i> Checkout
             </button>
@@ -198,9 +204,16 @@
         });
 
         $("select[name=expedisi]").on("change", function() {
+            //mendapatkan expedisi terpilih
+            var expedisi_selected = $("select[name=expedisi]").val();
+            //mendapatakan kota tujuan terpilih
+            var id_kota_asal_selected = $("option:selected", "select[name=kota]").attr('id_kota');
+            //mengambil data ongkir
+            var total_berat = <?= $total_berat ?>;
             $.ajax({
                 type: "POST",
                 url: "<?= base_url('rajaongkir/paket') ?>",
+                data: 'expedisi=' + expedisi_selected + '&id_kota=' + id_kota_asal_selected + '&berat=' + total_berat,
                 success: function(hasil_paket) {
                     // console.log(hasil_kota);
                     $("select[name=paket]").html(hasil_paket);
@@ -208,7 +221,20 @@
             });
         });
 
-        
+        $("select[name=paket]").on("change", function() {
+            var data_ongkir = $("option:selected", this).attr('ongkir');
+            var reverse = data_ongkir.toString().split('').reverse().join(''),
+                ribuan_ongkir = reverse.match(/\d{1,3}/g);
+            ribuan_ongkir = ribuan_ongkir.join(',').split('').reverse().join('');
 
+            $("#ongkir").html("Rp " + ribuan_ongkir)
+            //menghitung total bayar
+            var total_bayar = parseInt(data_ongkir) + parseInt(<?= $this->cart->total() ?>);
+            var reverse2 = total_bayar.toString().split('').reverse().join(''),
+                ribuan_total_bayar = reverse2.match(/\d{1,3}/g);
+            ribuan_total_bayar = ribuan_total_bayar.join(',').split('').reverse().join('');
+
+            $("#total_bayar").html("Rp " + ribuan_total_bayar)
+        });
     });
 </script>
