@@ -1,2 +1,2 @@
-<body class="hold-transition layout-top-nav">
+<body class="hold-transition layout-top-nav ">
     <div class="wrapper">
