@@ -44,8 +44,6 @@
                     echo form_hidden('redirect_page', str_replace('index.php/', '', current_url()))
 
                     ?>
-
-
                     <div class="card bg-light d-flex flex-fill">
                         <div class="card-header text-muted border-bottom-0">
                             <h2 class="lead"><b><?= $value->nama_barang ?></b></h2>
@@ -76,7 +74,6 @@
                                         </button>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -85,7 +82,7 @@
             <?php } ?>
         </div>
     </div>
-</div>
+
 
 <!-- SweetAlert2 -->
 <script src="<?= base_url() ?>template/plugins/sweetalert2/sweetalert2.min.js"></script>

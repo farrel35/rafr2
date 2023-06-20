@@ -111,11 +111,11 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <a href="<?= base_url('pelanggan/akun')?>" class="dropdown-item">
+                        <a href="<?= base_url('pelanggan/akun') ?>" class="dropdown-item">
                             <i class="fas fa-user"></i> Akun Saya
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="<?= base_url('pesanan_saya')?>" class="dropdown-item">
+                        <a href="<?= base_url('pesanan_saya') ?>" class="dropdown-item">
                             <i class="fas fa-shopping-cart"></i> Pesanan Saya
                         </a>
                         <div class="dropdown-divider"></div>

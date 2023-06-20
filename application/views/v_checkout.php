@@ -172,7 +172,7 @@
     $i = 1;
     foreach ($this->cart->contents() as $items) {
         echo form_hidden('qty' . $i++, $items['qty']);
-    }
+    }   
 
     ?>
     <!-- End Simpan Detail transaksi -->
