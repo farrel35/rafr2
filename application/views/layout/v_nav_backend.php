@@ -92,11 +92,12 @@
                      </ul>
                  </li>
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="nav-icon fas fa-th"></i>
+                     <a href="<?= base_url('admin/setting') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'admin/setting') {
+                                                                                    echo "active";
+                                                                                } ?>">
+                         <i class="nav-icon fas fa-asterisk"></i>
                          <p>
-                             Simple Link
-                             <span class="right badge badge-danger">New</span>
+                             Setting
                          </p>
                      </a>
                  </li>
