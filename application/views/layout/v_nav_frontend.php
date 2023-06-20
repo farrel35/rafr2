@@ -55,40 +55,45 @@
                     <span class="badge badge-danger navbar-badge"><?= $jml_item ?></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <!-- Keranjang Start -->
-                    <?php foreach ($keranjang as $key => $value) {
-                        $barang = $this->m_home->get_detailBarang($value['id']);
-                    ?>
+                    <?php if (empty($keranjang)) { ?>
+                        <a href="#" class="dropdown-item">
+                            <p>Keranjang Belanja Kosong</p>
+                        </a>
+                        <?php } else {
+                        // <!-- Keranjang Start -->
+                        foreach ($keranjang as $key => $value) {
+                            $barang = $this->m_home->get_detailBarang($value['id']);
+                        ?>
+                            <a href="#" class="dropdown-item">
+                                <div class="media">
+                                    <img src="<?= base_url('assets/image/' . $barang->image) ?>" class="img-size-50 mr-3">
+                                    <div class="media-body">
+                                        <h3 class="dropdown-item-title">
+                                            <?= $value['name'] ?>
+                                        </h3>
+                                        <p class="text-sm"><?= $value['qty'] ?> x Rp <?= number_format($value['price']) ?></p>
+                                        <p class="text-sm text-muted"><i class="fa fa-calculator"></i> Rp <?= number_format($value['subtotal'], 0) ?></p>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                        <?php } ?>
                         <a href="#" class="dropdown-item">
                             <div class="media">
-                                <img src="<?= base_url('assets/image/' . $barang->image) ?>" class="img-size-50 mr-3">
                                 <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        <?= $value['name'] ?>
-                                    </h3>
-                                    <p class="text-sm"><?= $value['qty'] ?> x Rp <?= number_format($value['price']) ?></p>
-                                    <p class="text-sm text-muted"><i class="fa fa-calculator"></i> Rp <?= $this->cart->format_number($value['subtotal']) ?></p>
+                                    <tr>
+                                        <td colspan="2"> </td>
+                                        <td class="right"><strong>Total : </strong></td>
+                                        <td class="right">Rp <?= number_format($this->cart->total(), 0) ?></td>
+                                    </tr>
                                 </div>
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
+                        <a href="<?= base_url('keranjang')?>" class="dropdown-item dropdown-footer">View Cart</a>
+                        <a href="#" class="dropdown-item dropdown-footer">Checkout</a>
                     <?php } ?>
                     <!-- Keranjang End -->
-
-                    <a href="#" class="dropdown-item">
-                        <div class="media">
-                            <div class="media-body">
-                                <tr>
-                                    <td colspan="2"> </td>
-                                    <td class="right"><strong>Total : </strong></td>
-                                    <td class="right">Rp <?= $this->cart->format_number($this->cart->total()) ?></td>
-                                </tr>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">View Cart</a>
-                    <a href="#" class="dropdown-item dropdown-footer">Checkout</a>
                 </div>
             </li>
             <!-- Notifications Dropdown Menu -->

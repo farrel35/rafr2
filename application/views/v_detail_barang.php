@@ -29,7 +29,7 @@
                 </div>
                 <hr>
                 <?php
-                echo form_open('belanja/add');
+                echo form_open('keranjang/add');
                 echo form_hidden('id', $barang->id_barang);
                 echo form_hidden('price', $barang->harga);
                 echo form_hidden('name', $barang->nama_barang);

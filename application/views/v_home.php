@@ -36,7 +36,7 @@
                 <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
 
                     <?php
-                    echo form_open('belanja/add');
+                    echo form_open('keranjang/add');
                     echo form_hidden('id', $value->id_barang);
                     echo form_hidden('qty', 1);
                     echo form_hidden('price', $value->harga);
