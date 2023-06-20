@@ -67,4 +67,14 @@ class Keranjang extends CI_Controller
 
         redirect('keranjang');
     }
+
+    public function checkout()
+    {
+        $this->pelanggan_login->proteksi_halaman();
+        $data = array(
+            'title' => 'Checkout',
+            'isi' => 'v_checkout'
+        );
+        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+    }
 }
