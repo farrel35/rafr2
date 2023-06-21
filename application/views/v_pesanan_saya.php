@@ -85,7 +85,7 @@
                                     </td>
                                     <td>
                                         <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
-                                        <span class="badge badge-primary">Dikemas</span>
+                                        <span class="badge badge-warning">Dikemas</span>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -112,7 +112,7 @@
                                     </td>
                                     <td>
                                         <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
-                                        <span class="badge badge-primary">Dikirim</span>
+                                        <span class="badge badge-success">Dikirim</span>
                                     </td>
                                     <td>
                                         <h5><?= $value->no_resi ?></h5>
@@ -144,7 +144,7 @@
                                     </td>
                                     <td>
                                         <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
-                                        <span class="badge badge-success">Diterima</span>
+                                        <span class="badge badge-primary">Diterima</span>
                                     </td>
                                     <td>
                                         <h5><?= $value->no_resi ?></h5>

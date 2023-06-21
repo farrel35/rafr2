@@ -17,7 +17,7 @@
 
                 echo form_open('keranjang/update'); ?>
 
-                <table class="table" cellpadding="6" cellspacing="1" style="width:100%">
+                <table class="table-responsive" cellpadding="6" cellspacing="1" style="width:100%">
                     <tr>
                         <th width="100px">Quantity</th>
                         <th>Nama Barang</th>
