@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `tb_detail_transaksi` (
   `id_detail` int(11) NOT NULL AUTO_INCREMENT,
   `no_order` varchar(15) NOT NULL,
   `id_barang` int(11) NOT NULL DEFAULT 0,
-  `quantity` int(11) NOT NULL DEFAULT 0,
+  `qty` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id_detail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -96,11 +96,24 @@ CREATE TABLE IF NOT EXISTS `tb_pelanggan` (
   `password` text NOT NULL,
   `image` text DEFAULT NULL,
   PRIMARY KEY (`id_pelanggan`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_rafr.tb_pelanggan: ~1 rows (approximately)
-INSERT INTO `tb_pelanggan` (`id_pelanggan`, `nama_pelanggan`, `email`, `password`, `image`) VALUES
-	(5, 'Farrel Ardian', 'farrelardian123@gmail.com', '123', 'foto.jpg');
+-- Dumping data for table db_rafr.tb_pelanggan: ~0 rows (approximately)
+
+-- Dumping structure for table db_rafr.tb_rekening
+CREATE TABLE IF NOT EXISTS `tb_rekening` (
+  `id_rekening` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_bank` varchar(25) DEFAULT NULL,
+  `no_rekening` varchar(25) DEFAULT NULL,
+  `atas_nama` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id_rekening`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Dumping data for table db_rafr.tb_rekening: ~3 rows (approximately)
+INSERT INTO `tb_rekening` (`id_rekening`, `nama_bank`, `no_rekening`, `atas_nama`) VALUES
+	(1, 'Bank Mandiri', '132-003600-0009', 'Farrel Ardian'),
+	(2, 'Bank Central Asia (BCA)', '6280-66-9600', 'Farrel Ardian'),
+	(3, 'Bank Negara Indonesia (BN', '019-886-9291', 'Farrel Ardian');
 
 -- Dumping structure for table db_rafr.tb_setting
 CREATE TABLE IF NOT EXISTS `tb_setting` (
@@ -119,26 +132,29 @@ INSERT INTO `tb_setting` (`id`, `nama_toko`, `lokasi`, `alamat_toko`, `no_telepo
 -- Dumping structure for table db_rafr.tb_transaksi
 CREATE TABLE IF NOT EXISTS `tb_transaksi` (
   `id_transaksi` int(11) NOT NULL AUTO_INCREMENT,
-  `no_order` varchar(20) NOT NULL,
-  `tanggal_order` date NOT NULL,
-  `nama_penerima` varchar(25) NOT NULL,
-  `provinsi` varchar(25) NOT NULL,
-  `kota` varchar(25) NOT NULL,
-  `alamat` text NOT NULL,
-  `expedisi` varchar(255) NOT NULL,
-  `paket` varchar(255) NOT NULL,
-  `estimasi` varchar(255) NOT NULL,
-  `ongkir` int(50) NOT NULL DEFAULT 0,
-  `berat` varchar(255) NOT NULL,
-  `grand_total` int(11) NOT NULL DEFAULT 0,
-  `total_bayar` int(11) NOT NULL DEFAULT 0,
-  `status_bayar` int(1) NOT NULL DEFAULT 0,
-  `bukti_bayar` text NOT NULL,
-  `atas_nama` varchar(25) NOT NULL DEFAULT '',
-  `nama_bank` varchar(25) NOT NULL DEFAULT '',
-  `no_rekening` varchar(25) NOT NULL DEFAULT '0',
-  `status_order` int(11) NOT NULL DEFAULT 0,
-  `no_resi` varchar(25) NOT NULL DEFAULT '0',
+  `id_pelanggan` int(11) DEFAULT NULL,
+  `no_order` varchar(20) DEFAULT NULL,
+  `tgl_order` date DEFAULT NULL,
+  `nama_penerima` varchar(25) DEFAULT NULL,
+  `tlp_penerima` varchar(25) DEFAULT NULL,
+  `provinsi` varchar(25) DEFAULT NULL,
+  `kota` varchar(25) DEFAULT NULL,
+  `alamat` text DEFAULT NULL,
+  `kode_pos` varchar(8) DEFAULT NULL,
+  `expedisi` varchar(255) DEFAULT NULL,
+  `paket` varchar(255) DEFAULT NULL,
+  `estimasi` varchar(255) DEFAULT NULL,
+  `ongkir` int(50) DEFAULT 0,
+  `berat` varchar(255) DEFAULT NULL,
+  `grand_total` int(11) DEFAULT 0,
+  `total_bayar` int(11) DEFAULT 0,
+  `status_bayar` int(1) DEFAULT 0,
+  `bukti_bayar` text DEFAULT NULL,
+  `atas_nama` varchar(25) DEFAULT '',
+  `nama_bank` varchar(25) DEFAULT '',
+  `no_rekening` varchar(25) DEFAULT '0',
+  `status_order` int(11) DEFAULT 0,
+  `no_resi` varchar(25) DEFAULT '0',
   PRIMARY KEY (`id_transaksi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -152,12 +168,9 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `password` varchar(25) DEFAULT NULL,
   `level_user` int(1) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_rafr.tb_user: ~2 rows (approximately)
-INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `level_user`) VALUES
-	(3, 'Farrel Ardian', 'admin', 'admin', 1),
-	(6, 'contoh', 'admin', 'admin', 1);
+-- Dumping data for table db_rafr.tb_user: ~0 rows (approximately)
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

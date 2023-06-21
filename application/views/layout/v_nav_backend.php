@@ -1,7 +1,7 @@
  <!-- Main Sidebar Container -->
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
-     <a href="index3.html" class="brand-link">
+     <a href="<?= base_url('admin')?>" class="brand-link">
          <span class="brand-text font-weight-light">Admin Panel</span>
      </a>
 
@@ -13,7 +13,7 @@
                  <img src="<?= base_url() ?>template/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
              </div>
              <div class="info">
-                 <a href="#" class="d-block">Alexander Pierce</a>
+                 <a href="#" class="d-block"><?= $this->session->userdata('nama_user') ?></a>
              </div>
          </div>
 
@@ -73,7 +73,7 @@
                                                                                             echo "active";
                                                                                         } ?>">
                          <i class="nav-icon fas fa-download"></i>
-                         <p>Pesanan Masuk</p>
+                         <p>Pesanan</p>
                      </a>
                  </li>
 
@@ -131,7 +131,7 @@
                  </div><!-- /.col -->
                  <div class="col-sm-6">
                      <ol class="breadcrumb float-sm-right">
-                         <li class="breadcrumb-item"><a href="#">Home</a></li>
+                         <li class="breadcrumb-item"><a href="<?= base_url('admin')?>">Home</a></li>
                          <li class="breadcrumb-item active"><?= $title ?></li>
                      </ol>
                  </div><!-- /.col -->
