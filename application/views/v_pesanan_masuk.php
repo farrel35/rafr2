@@ -28,7 +28,7 @@
         <div class="card-body table-responsive">
             <div class="tab-content" id="custom-tabs-four-tabContent">
                 <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <tr>
                             <th>No Order</th>
                             <th>Tanggal Order</th>
@@ -36,16 +36,16 @@
                             <th>Nama Penerima</th>
                             <th>Alamat</th>
                             <th>Total Bayar</th>
-                            <th></th>
+                            <th class="text-center">Action</th>
                         </tr>
                         <?php foreach ($pesanan as $key => $value) { ?>
                             <tr>
-                                <td><?= $value->no_order ?></td>
+                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
                                     Paket : <?= $value->paket ?><br>
-                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                 </td>
                                 <td><?= $value->nama_penerima ?></td>
                                 <td>
@@ -55,7 +55,7 @@
                                     Provinsi : <?= $value->provinsi ?>
                                 </td>
                                 <td>
-                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                     <?php
                                     if ($value->status_bayar == 0) { ?>
                                         <span class="badge badge-warning">Belum Bayar</span>
@@ -64,7 +64,7 @@
                                         <span class="badge badge-success">Menunggu Verifikasi</span>
                                     <?php } ?>
                                 </td>
-                                <td>
+                                <td class="text-center">
                                     <?php
                                     if ($value->status_bayar == 1) { ?>
                                         <button class="btn btn-sm btn-success btn-flat" data-toggle="modal" data-target="#cek<?= $value->id_transaksi ?>">Cek Bukti Bayar</button>
@@ -86,15 +86,15 @@
                         </tr>
                         <?php foreach ($pesanan_diproses as $key => $value) { ?>
                             <tr>
-                                <td><?= $value->no_order ?></td>
+                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
                                     Paket : <?= $value->paket ?><br>
-                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                 </td>
                                 <td>
-                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                     <span class="badge badge-warning">Dikemas</span>
                                 </td>
                                 <td>
@@ -119,15 +119,15 @@
                         </tr>
                         <?php foreach ($pesanan_dikirim as $key => $value) { ?>
                             <tr>
-                                <td><?= $value->no_order ?></td>
+                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
                                     Paket : <?= $value->paket ?><br>
-                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                 </td>
                                 <td>
-                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                     <span class="badge badge-success">Dikirim</span>
                                 </td>
                                 <td>
@@ -148,15 +148,15 @@
                         </tr>
                         <?php foreach ($pesanan_selesai as $key => $value) { ?>
                             <tr>
-                                <td><?= $value->no_order ?></td>
+                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
                                     Paket : <?= $value->paket ?><br>
-                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                 </td>
                                 <td>
-                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                     <span class="badge badge-primary">Diterima</span>
                                 </td>
                                 <td>
@@ -202,7 +202,7 @@
                         <tr>
                             <th>Total Bayar</th>
                             <th>:</th>
-                            <td>Rp <?= number_format($value->total_bayar, 0) ?> </td>
+                            <td>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?> </td>
                         </tr>
                     </table>
                     <img class="img-fluid pad img-cent" src="<?= base_url('assets/image_buktibayar/' . $value->bukti_bayar) ?>" alt="">
@@ -240,7 +240,7 @@
                         <tr>
                             <th>Ongkir</th>
                             <th>:</th>
-                            <td>Rp <?= number_format($value->ongkir, 0) ?></td>
+                            <td>Rp <?= number_format($value->ongkir, 0, ",", ".") ?></td>
                         </tr>
                         <tr>
                             <th>No Resi</th>

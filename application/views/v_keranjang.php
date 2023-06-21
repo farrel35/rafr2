@@ -44,8 +44,8 @@
                                     <?php echo $items['name']; ?>
                                 </td>
                                 <td style="text-align:center"><?php echo $berat; ?> gr</td>
-                                <td style="text-align:center">Rp <?php echo number_format($items['price'], 0); ?></td>
-                                <td style="text-align:center">Rp <?php echo number_format($items['subtotal'], 0); ?></td>
+                                <td style="text-align:center">Rp <?php echo number_format($items['price'], 0, ",", "."); ?></td>
+                                <td style="text-align:center">Rp <?php echo number_format($items['subtotal'], 0, ",", "."); ?></td>
                                 <td class="text-center">
                                     <a href="<?= base_url('keranjang/delete/' . $items['rowid']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                 </td>
@@ -57,7 +57,7 @@
 
                         <tr>
                             <td class="right"><strong>Total</strong></td>
-                            <td class="right"><strong>Rp <?php echo number_format($this->cart->total(), 0); ?></strong></td>
+                            <td class="right"><strong>Rp <?php echo number_format($this->cart->total(), 0, ",", "."); ?></strong></td>
                             <th class="right"><strong>Total Berat : <?= $total_berat ?> gr</strong></th>
                             <td></td>
                             <td></td>

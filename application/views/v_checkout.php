@@ -40,8 +40,8 @@
                                 <?php echo $items['name']; ?>
                             </td>
                             <td style="text-align:center"><?php echo $berat; ?> gr</td>
-                            <td style="text-align:center">Rp <?php echo number_format($items['price'], 0); ?></td>
-                            <td style="text-align:center">Rp <?php echo number_format($items['subtotal'], 0); ?></td>
+                            <td style="text-align:center">Rp <?php echo number_format($items['price'], 0, ",", "."); ?></td>
+                            <td style="text-align:center">Rp <?php echo number_format($items['subtotal'], 0, ",", "."); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -138,7 +138,7 @@
                 <table class="table">
                     <tr>
                         <th style="width:50%">Grand-Total:</th>
-                        <th>Rp <?php echo number_format($this->cart->total(), 0); ?></th>
+                        <th>Rp <?php echo number_format($this->cart->total(), 0, ",", "."); ?></th>
                     </tr>
                     <tr>
                         <th>Berat:</th>

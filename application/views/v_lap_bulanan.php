@@ -42,12 +42,12 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $value->no_order ?></td>
                                 <td><?= $value->tgl_order ?></td>
-                                <td>Rp <?= number_format($value->grand_total, 0) ?></td>
+                                <td>Rp <?= number_format($value->grand_total, 0, ",", ".") ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                Total : Rp <?= number_format($grand_total, 0) ?>
+                Total : Rp <?= number_format($grand_total, 0, ",", ".") ?>
             </div>
             <!-- /.col -->
         </div>

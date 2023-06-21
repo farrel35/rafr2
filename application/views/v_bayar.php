@@ -7,7 +7,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <p>Silahkan transfer ke nomor rekening berikut sejumlah :
-                    <h1 class="text-primary">Rp <?= number_format($pesanan->total_bayar, 0) ?></h1>
+                    <h1 class="text-primary">Rp <?= number_format($pesanan->total_bayar, 0, ",", ".") ?></h1>
                     </p>
                     <table class="table">
                         <tr>

@@ -24,7 +24,7 @@
                 <hr>
                 <div class="bg-gray py-2 px-3 mt-4">
                     <h2 class="mb-0">
-                        Rp <?= number_format($barang->harga) ?>
+                        Rp <?= number_format($barang->harga, 0, ",", "."); ?>
                     </h2>
                 </div>
                 <hr>

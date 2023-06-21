@@ -59,8 +59,8 @@
                                         <h3 class="dropdown-item-title">
                                             <?= $value['name'] ?>
                                         </h3>
-                                        <p class="text-sm"><?= $value['qty'] ?> x Rp <?= number_format($value['price']) ?></p>
-                                        <p class="text-sm text-muted"><i class="fa fa-calculator"></i> Rp <?= number_format($value['subtotal'], 0) ?></p>
+                                        <p class="text-sm"><?= $value['qty'] ?> x Rp <?= number_format($value['price'], 0, ",", ".") ?></p>
+                                        <p class="text-sm text-muted"><i class="fa fa-calculator"></i> Rp <?= number_format($value['subtotal'], 0, ",", ".") ?></p>
                                     </div>
                                 </div>
                             </a>
@@ -72,7 +72,7 @@
                                     <tr>
                                         <td colspan="2"> </td>
                                         <td class="right"><strong>Total : </strong></td>
-                                        <td class="right">Rp <?= number_format($this->cart->total(), 0) ?></td>
+                                        <td class="right">Rp <?= number_format($this->cart->total(), 0, ",", ".") ?></td>
                                     </tr>
                                 </div>
                             </div>

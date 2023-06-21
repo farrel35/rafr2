@@ -96,6 +96,17 @@ class Admin extends CI_Controller
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
     }
 
+    public function detail($id_transaksi)
+    {
+        $data = array(
+            'title' => 'Detail Pesanan',
+            'detail' => $this->m_admin->detail($id_transaksi),
+            'detail_pesanan' => $this->m_admin->detail_pesanan($id_transaksi),
+            'isi' => 'v_detail_pesanan'
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    }
+
     public function proses($id_transaksi)
     {
         $data = array(

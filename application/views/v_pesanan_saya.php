@@ -44,10 +44,10 @@
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
                                         Paket : <?= $value->paket ?><br>
-                                        Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                        Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                     </td>
                                     <td>
-                                        <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                        <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                         <?php
                                         if ($value->status_bayar == 0) { ?>
                                             <span class="badge badge-warning">Belum Bayar</span>
@@ -81,10 +81,10 @@
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
                                         Paket : <?= $value->paket ?><br>
-                                        Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                        Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                     </td>
                                     <td>
-                                        <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                        <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                         <span class="badge badge-warning">Dikemas</span>
                                     </td>
                                 </tr>
@@ -108,10 +108,10 @@
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
                                         Paket : <?= $value->paket ?><br>
-                                        Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                        Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                     </td>
                                     <td>
-                                        <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                        <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                         <span class="badge badge-success">Dikirim</span>
                                     </td>
                                     <td>
@@ -140,10 +140,10 @@
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
                                         Paket : <?= $value->paket ?><br>
-                                        Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                        Ongkir : Rp <?= number_format($value->ongkir, 0, ",", ".") ?><br>
                                     </td>
                                     <td>
-                                        <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                        <b>Rp <?= number_format($value->total_bayar, 0, ",", ".") ?></b><br>
                                         <span class="badge badge-primary">Diterima</span>
                                     </td>
                                     <td>

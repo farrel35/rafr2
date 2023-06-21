@@ -45,14 +45,14 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $value->no_order ?></td>
                                 <td><?= $value->nama_barang ?></td>
-                                <td>Rp <?= number_format($value->harga, 0) ?></td>
+                                <td>Rp <?= number_format($value->harga, 0, ",", ".") ?></td>
                                 <td><?= $value->qty ?></td>
-                                <td>Rp <?= number_format($total_harga, 0) ?></td>
+                                <td>Rp <?= number_format($total_harga, 0, ",", ".") ?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
                 </table>
-                Total : Rp <?= number_format($grand_total, 0) ?>
+                Total : Rp <?= number_format($grand_total, 0, ",", ".") ?>
             </div>
             <!-- /.col -->
         </div>
