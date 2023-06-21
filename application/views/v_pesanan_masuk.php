@@ -67,30 +67,95 @@
                     </table>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                    Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris pharetra purus ut
-                    ligula tempor, et vulputate metus facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                    Maecenas sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere purus
-                    ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at, posuere nec nunc. Nunc
-                    euismod pellentesque diam.
+                    <table class="table">
+                        <tr>
+                            <th>No Order</th>
+                            <th>Tanggal Order</th>
+                            <th>Expedisi</th>
+                            <th>Total Bayar</th>
+                            <th></th>
+                        </tr>
+                        <?php foreach ($pesanan_diproses as $key => $value) { ?>
+                            <tr>
+                                <td><?= $value->no_order ?></td>
+                                <td><?= $value->tgl_order ?></td>
+                                <td>
+                                    <b><?= $value->expedisi ?></b><br>
+                                    Paket : <?= $value->paket ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                </td>
+                                <td>
+                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <span class="badge badge-primary">Dikemas</span>
+                                </td>
+                                <td>
+                                    <?php
+                                    if ($value->status_bayar == 1) { ?>
+                                        <button class="btn btn-sm btn-flat btn-primary" data-toggle="modal" data-target="#kirim<?= $value->id_transaksi ?>"><i class="fa fa-paper-plane"></i>
+                                            Kirim</button>
+                                    <?php }  ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                    Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris. Phasellus volutpat augue
-                    id mi placerat mollis. Vivamus faucibus eu massa eget condimentum. Fusce nec hendrerit sem, ac
-                    tristique nulla. Integer vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit
-                    condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis velit finibus
-                    tristique. Nam vulputate, eros non luctus efficitur, ipsum odio volutpat massa, sit amet
-                    sollicitudin est libero sed ipsum. Nulla lacinia, ex vitae gravida fermentum, lectus ipsum
-                    gravida arcu, id fermentum metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend
-                    ac ornare magna.
+                    <table class="table">
+                        <tr>
+                            <th>No Order</th>
+                            <th>Tanggal Order</th>
+                            <th>Expedisi</th>
+                            <th>Total Bayar</th>
+                            <th>No Resi</th>
+                        </tr>
+                        <?php foreach ($pesanan_dikirim as $key => $value) { ?>
+                            <tr>
+                                <td><?= $value->no_order ?></td>
+                                <td><?= $value->tgl_order ?></td>
+                                <td>
+                                    <b><?= $value->expedisi ?></b><br>
+                                    Paket : <?= $value->paket ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                </td>
+                                <td>
+                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <span class="badge badge-success">Dikirim</span>
+                                </td>
+                                <td>
+                                    <h5><?= $value->no_resi ?></h5>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                    Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis
-                    ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate.
-                    Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec
-                    interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at
-                    consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst.
-                    Praesent imperdiet accumsan ex sit amet facilisis.
+                    <table class="table">
+                        <tr>
+                            <th>No Order</th>
+                            <th>Tanggal Order</th>
+                            <th>Expedisi</th>
+                            <th>Total Bayar</th>
+                            <th>No Resi</th>
+                        </tr>
+                        <?php foreach ($pesanan_selesai as $key => $value) { ?>
+                            <tr>
+                                <td><?= $value->no_order ?></td>
+                                <td><?= $value->tgl_order ?></td>
+                                <td>
+                                    <b><?= $value->expedisi ?></b><br>
+                                    Paket : <?= $value->paket ?><br>
+                                    Ongkir : Rp <?= number_format($value->ongkir, 0) ?><br>
+                                </td>
+                                <td>
+                                    <b>Rp <?= number_format($value->total_bayar, 0) ?></b><br>
+                                    <span class="badge badge-success">Diterima</span>
+                                </td>
+                                <td>
+                                    <h5><?= $value->no_resi ?></h5>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </table>
                 </div>
             </div>
         </div>
@@ -133,6 +198,53 @@
                     </table>
                     <img class="img-fluid pad img-cent" src="<?= base_url('assets/image_buktibayar/' . $value->bukti_bayar) ?>" alt="">
                 </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+<?php } ?>
+
+<?php foreach ($pesanan_diproses as $key => $value) { ?>
+    <div class="modal fade" id="kirim<?= $value->id_transaksi ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><?= $value->no_order ?></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <?php echo form_open('admin/kirim/' . $value->id_transaksi) ?>
+                    <table class="table">
+                        <tr>
+                            <th>Expedisi</th>
+                            <th>:</th>
+                            <td><?= $value->expedisi ?></td>
+                        </tr>
+                        <tr>
+                            <th>Paket</th>
+                            <th>:</th>
+                            <td><?= $value->paket ?></td>
+                        </tr>
+                        <tr>
+                            <th>Ongkir</th>
+                            <th>:</th>
+                            <td>Rp <?= number_format($value->ongkir, 0) ?></td>
+                        </tr>
+                        <tr>
+                            <th>No Resi</th>
+                            <th>:</th>
+                            <td><input class="form-control" name="no_resi" placeholder="Masukan no resi" required></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                </div>
+                <?php echo form_close() ?>
             </div>
             <!-- /.modal-content -->
         </div>
