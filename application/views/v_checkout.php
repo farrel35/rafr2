@@ -56,7 +56,8 @@
     ?>
     <?php
     echo form_open('keranjang/checkout');
-    $no_order = date('Ymd') . strtoupper(random_string('alnum', 5));
+    // $no_order = date('Ymd') . strtoupper(random_string('alnum', 5));
+    $no_order = '#RAFR-' . strtoupper(random_string('alpha', 5)) . strtoupper(random_string('numeric', 4));
     ?>
     <div class="row">
         <!-- accepted payments column -->
@@ -172,7 +173,7 @@
     $i = 1;
     foreach ($this->cart->contents() as $items) {
         echo form_hidden('qty' . $i++, $items['qty']);
-    }   
+    }
 
     ?>
     <!-- End Simpan Detail transaksi -->
