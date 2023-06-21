@@ -132,7 +132,7 @@
             </address>
         </div>
         <!-- /.col -->
-        <div class="col-4">
+        <div class="col-sm-4">
             <div class="table-responsive">
                 <table class="table">
                     <tr>
@@ -172,7 +172,7 @@
     $i = 1;
     foreach ($this->cart->contents() as $items) {
         echo form_hidden('qty' . $i++, $items['qty']);
-    }
+    }   
 
     ?>
     <!-- End Simpan Detail transaksi -->

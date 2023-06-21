@@ -50,7 +50,7 @@ class Pesanan_saya extends CI_Controller
                     'pesanan' => $this->m_transaksi->detail_pesanan($id_transaksi),
                     'rekening' => $this->m_transaksi->rekening(),
                     'error_upload' => $this->upload->display_errors(),
-                    'isi' => 'barang/v_add'
+                    'isi' => 'v_bayar'
                 );
                 $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
             } else {

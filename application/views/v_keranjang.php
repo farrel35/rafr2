@@ -12,57 +12,58 @@
                 }
                 ?>
             </div>
-            <div class="col-sm-12">
+            <div class="col-sm-12 table-responsive">
                 <?php
 
                 echo form_open('keranjang/update'); ?>
 
-                <table class="table-responsive" cellpadding="6" cellspacing="1" style="width:100%">
-                    <tr>
-                        <th width="100px">Quantity</th>
-                        <th>Nama Barang</th>
-                        <th style="text-align:center">Berat Barang</th>
-                        <th style="text-align:center">Harga</th>
-                        <th style="text-align:center">Sub-Total</th>
-                        <th style="text-align:center">Action</th>
-                    </tr>
-
-                    <?php $i = 1; ?>
-
-                    <?php
-                    $total_berat = 0;
-                    foreach ($this->cart->contents() as $items) {
-                        $barang = $this->m_home->get_detailBarang($items['id']);
-                        $berat = $items['qty'] * $barang->berat;
-                        $total_berat += $berat;
-                    ?>
+                <table class="table" cellpadding="6" cellspacing="1" style="width:100%">
+                    <tbody>
                         <tr>
-                            <td><?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'min' => '0', 'size' => '5', 'type' => 'number', 'class' => 'form-control')); ?>
-                            </td>
-                            <td>
-                                <?php echo $items['name']; ?>
-                            </td>
-                            <td style="text-align:center"><?php echo $berat; ?> gr</td>
-                            <td style="text-align:center">Rp <?php echo number_format($items['price'], 0); ?></td>
-                            <td style="text-align:center">Rp <?php echo number_format($items['subtotal'], 0); ?></td>
-                            <td class="text-center">
-                                <a href="<?= base_url('keranjang/delete/' . $items['rowid']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-                            </td>
+                            <th width="100px">Quantity</th>
+                            <th>Nama Barang</th>
+                            <th style="text-align:center">Berat Barang</th>
+                            <th style="text-align:center">Harga</th>
+                            <th style="text-align:center">Sub-Total</th>
+                            <th style="text-align:center">Action</th>
                         </tr>
 
-                        <?php $i++; ?>
+                        <?php $i = 1; ?>
 
-                    <?php } ?>
+                        <?php
+                        $total_berat = 0;
+                        foreach ($this->cart->contents() as $items) {
+                            $barang = $this->m_home->get_detailBarang($items['id']);
+                            $berat = $items['qty'] * $barang->berat;
+                            $total_berat += $berat;
+                        ?>
+                            <tr>
+                                <td><?php echo form_input(array('name' => $i . '[qty]', 'value' => $items['qty'], 'maxlength' => '3', 'min' => '0', 'size' => '5', 'type' => 'number', 'class' => 'form-control')); ?>
+                                </td>
+                                <td>
+                                    <?php echo $items['name']; ?>
+                                </td>
+                                <td style="text-align:center"><?php echo $berat; ?> gr</td>
+                                <td style="text-align:center">Rp <?php echo number_format($items['price'], 0); ?></td>
+                                <td style="text-align:center">Rp <?php echo number_format($items['subtotal'], 0); ?></td>
+                                <td class="text-center">
+                                    <a href="<?= base_url('keranjang/delete/' . $items['rowid']) ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
 
-                    <tr>
-                        <td class="right"><strong>Total</strong></td>
-                        <td class="right"><strong>Rp <?php echo number_format($this->cart->total(), 0); ?></strong></td>
-                        <th class="right"><strong>Total Berat : <?= $total_berat ?> gr</strong></th>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                            <?php $i++; ?>
 
+                        <?php } ?>
+
+                        <tr>
+                            <td class="right"><strong>Total</strong></td>
+                            <td class="right"><strong>Rp <?php echo number_format($this->cart->total(), 0); ?></strong></td>
+                            <th class="right"><strong>Total Berat : <?= $total_berat ?> gr</strong></th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
                 </table>
 
                 <div class="row">

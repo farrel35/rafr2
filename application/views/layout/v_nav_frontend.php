@@ -79,7 +79,7 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="<?= base_url('keranjang') ?>" class="dropdown-item dropdown-footer">View Cart</a>
-                        <a href="#" class="dropdown-item dropdown-footer">Checkout</a>
+                        <a href="<?= base_url('keranjang/checkout') ?>" class="dropdown-item dropdown-footer">Checkout</a>
                     <?php } ?>
                     <!-- Keranjang End -->
                 </div>
@@ -90,12 +90,12 @@
                 <?php if ($this->session->userdata('email') == "") { ?>
                     <a class="nav-link" href="<?= base_url('pelanggan/login') ?>">
                         <span class="brand-text font-weight-light">Login</span>
-                        <img src="<?= base_url() ?>template/dist/img/user3-128x128.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        <img src="<?= base_url() ?>template/dist/img/user3-128x128.jpg" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
                     </a>
                 <?php } else { ?>
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <span class="brand-text font-weight-light"><?= $this->session->userdata('nama_pelanggan') ?></span>
-                        <img src="<?= base_url('assets/image_pelanggan/') . $this->session->userdata('image') ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        <img src="<?= base_url('assets/image_pelanggan/') . $this->session->userdata('image') ?>" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>

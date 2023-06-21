@@ -27,7 +27,7 @@
                 </ul>
             </div>
             <div class="card-body">
-                <div class="tab-content" id="custom-tabs-four-tabContent">
+                <div class="tab-content table-responsive" id="custom-tabs-four-tabContent">
                     <div class="tab-pane fade show active" id="custom-tabs-four-home" role="tabpanel" aria-labelledby="custom-tabs-four-home-tab">
                         <table class="table">
                             <tr>

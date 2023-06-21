@@ -35,6 +35,13 @@
             <!-- /.card-header -->
             <!-- form start -->
             <?php
+
+            // notif gagal upload
+            if (isset($error_upload)) {
+                echo '<div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-info"></i>' . $error_upload . '</h5></div>';
+            }
             echo form_open_multipart('pesanan_saya/bayar/' . $pesanan->id_transaksi)
             ?>
             <div class="card-body">
