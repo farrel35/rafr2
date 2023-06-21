@@ -24,18 +24,6 @@
                         <?php } ?>
                     </ul>
                 </li>
-
-                <li class="nav-item">
-                    <a href="#" class="nav-link">Kategori</a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
-                    <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                        <li><a href="#" class="dropdown-item">Some action </a></li>
-                        <li><a href="#" class="dropdown-item">Some other action</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
 
@@ -139,7 +127,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">RAFR VapeStore</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url()?>">RAFR VapeStore</a></li>
                         <li class="breadcrumb-item"><a href="#"><?= $title ?></a></li>
                     </ol>
                 </div><!-- /.col -->

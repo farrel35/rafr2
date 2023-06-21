@@ -15,6 +15,7 @@ class Pesanan_saya extends CI_Controller
 
     public function index()
     {
+        $this->pelanggan_login->proteksi_halaman();
         $data = array(
             'title' => 'Pesanan Saya',
             'belum_bayar' => $this->m_transaksi->belum_bayar(),

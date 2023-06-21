@@ -78,30 +78,15 @@
                  </li>
 
                  <li class="nav-item">
-                     <a href="#" class="nav-link">
-                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                         <p>
-                             Starter Pages
-                             <i class="right fas fa-angle-left"></i>
-                         </p>
+                     <a href="<?= base_url('laporan') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'laporan') {
+                                                                                echo "active";
+                                                                            } ?>">
+                         <i class="nav-icon fas fa-file"></i>
+                         <p>Laporan</p>
                      </a>
-                     <ul class="nav nav-treeview">
-                         <li class="nav-item">
-                             <a href="#" class="nav-link active">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Active Page</p>
-                             </a>
-                         </li>
-                         <li class="nav-item">
-                             <a href="#" class="nav-link">
-                                 <i class="far fa-circle nav-icon"></i>
-                                 <p>Inactive Page</p>
-                             </a>
-                         </li>
-                     </ul>
                  </li>
                  <li class="nav-item">
-                     <a href="<?= base_url('admin/setting') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'admin/setting') {
+                     <a href="<?= base_url('admin/setting') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'setting' and $this->uri->segment(1) == 'admin') {
                                                                                     echo "active";
                                                                                 } ?>">
                          <i class="nav-icon fas fa-asterisk"></i>
