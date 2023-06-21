@@ -9,6 +9,8 @@ class Admin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_admin');
+        $this->load->model('m_pesanan_masuk');
+        
     }
 
     public function index()
@@ -78,6 +80,16 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('pesan', 'Setting berhasil diedit');
             redirect('admin/setting');
         }
+    }
+
+    public function pesanan_masuk()
+    {
+        $data = array(
+            'title' => 'Pesanan Masuk',
+            'pesanan' => $this->m_pesanan_masuk->pesanan(),
+            'isi' => 'v_pesanan_masuk'
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
     }
 }
 
