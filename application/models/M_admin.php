@@ -11,7 +11,7 @@ class M_admin extends CI_Model
 
    public function total_PesananMasuk()
    {
-      $this->db->where('status_bayar=0');
+      $this->db->where('(status_bayar=0 OR status_bayar=1 AND status_order=0)');
 
       return $this->db->get('tb_transaksi')->num_rows();
    }
