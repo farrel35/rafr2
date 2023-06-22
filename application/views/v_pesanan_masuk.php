@@ -40,7 +40,7 @@
                         </tr>
                         <?php foreach ($pesanan as $key => $value) { ?>
                             <tr>
-                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
+                                <td><a href="<?= base_url('admin/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
@@ -76,7 +76,7 @@
                     </table>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-profile" role="tabpanel" aria-labelledby="custom-tabs-four-profile-tab">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <tr>
                             <th>No Order</th>
                             <th>Tanggal Order</th>
@@ -86,7 +86,7 @@
                         </tr>
                         <?php foreach ($pesanan_diproses as $key => $value) { ?>
                             <tr>
-                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
+                                <td><a href="<?= base_url('admin/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
@@ -109,7 +109,7 @@
                     </table>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-messages" role="tabpanel" aria-labelledby="custom-tabs-four-messages-tab">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <tr>
                             <th>No Order</th>
                             <th>Tanggal Order</th>
@@ -119,7 +119,7 @@
                         </tr>
                         <?php foreach ($pesanan_dikirim as $key => $value) { ?>
                             <tr>
-                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
+                                <td><a href="<?= base_url('admin/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>
@@ -138,7 +138,7 @@
                     </table>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-four-settings" role="tabpanel" aria-labelledby="custom-tabs-four-settings-tab">
-                    <table class="table">
+                    <table class="table table-bordered">
                         <tr>
                             <th>No Order</th>
                             <th>Tanggal Order</th>
@@ -148,7 +148,7 @@
                         </tr>
                         <?php foreach ($pesanan_selesai as $key => $value) { ?>
                             <tr>
-                                <td><a href="<?= base_url('admin/detail/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
+                                <td><a href="<?= base_url('admin/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                 <td><?= $value->tgl_order ?></td>
                                 <td>
                                     <b><?= $value->expedisi ?></b><br>

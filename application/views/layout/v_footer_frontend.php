@@ -11,7 +11,7 @@
         <!-- Anything you want -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 <a href="<?= base_url()?>">Farrel Ardian</a></strong>.
+    <strong>Copyright &copy; 2023 <a href="<?= base_url() ?>">Farrel Ardian</a></strong>.
 </footer>
 </div>
 <!-- ./wrapper -->

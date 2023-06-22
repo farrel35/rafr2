@@ -18,6 +18,9 @@ class Admin extends CI_Controller
             'title' => 'Dashboard',
             'total_barang' => $this->m_admin->total_Barang(),
             'total_pesanan_masuk' => $this->m_admin->total_PesananMasuk(),
+            'total_pesanan_diproses' => $this->m_admin->total_PesananDiproses(),
+            'total_pesanan_dikirim' => $this->m_admin->total_PesananDikirim(),
+            'total_pesanan_selesai' => $this->m_admin->total_PesananSelesai(),
             'total_pelanggan' => $this->m_admin->total_Pelanggan(),
             'total_kategori' => $this->m_admin->total_Kategori(),
             'isi' => 'v_admin'
@@ -96,7 +99,7 @@ class Admin extends CI_Controller
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
     }
 
-    public function detail($id_transaksi)
+    public function detail_pesanan($id_transaksi)
     {
         $data = array(
             'title' => 'Detail Pesanan',

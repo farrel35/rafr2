@@ -16,6 +16,27 @@ class M_admin extends CI_Model
       return $this->db->get('tb_transaksi')->num_rows();
    }
 
+   public function total_PesananDiproses()
+   {
+      $this->db->where('(status_order=1)');
+
+      return $this->db->get('tb_transaksi')->num_rows();
+   }
+
+   public function total_PesananDikirim()
+   {
+      $this->db->where('(status_order=2)');
+
+      return $this->db->get('tb_transaksi')->num_rows();
+   }
+
+   public function total_PesananSelesai()
+   {
+      $this->db->where('(status_order=3)');
+
+      return $this->db->get('tb_transaksi')->num_rows();
+   }
+
    public function total_Kategori()
    {
       return $this->db->get('tb_kategori')->num_rows();
