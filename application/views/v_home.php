@@ -3,6 +3,8 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -12,7 +14,13 @@
             <img class="d-block w-100" src="<?= base_url() ?>assets/slider/slider2.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="<?= base_url() ?>assets/slider/slider1.jpg" alt="Third slide">
+            <img class="d-block w-100" src="<?= base_url() ?>assets/slider/slider3.jpg" alt="Third slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="<?= base_url() ?>assets/slider/slider4.jpg" alt="Fourth slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="<?= base_url() ?>assets/slider/slider5.jpg" alt="Fifth slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -91,6 +99,7 @@
 
 <!-- SweetAlert2 -->
 <script src="<?= base_url() ?>template/plugins/sweetalert2/sweetalert2.min.js"></script>
+
 <script>
     $(function() {
         var Toast = Swal.mixin({
