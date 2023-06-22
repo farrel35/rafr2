@@ -39,7 +39,7 @@
                             </tr>
                             <?php foreach ($belum_bayar as $key => $value) { ?>
                                 <tr>
-                                    <td><?= $value->no_order ?></td>
+                                    <td><a href="<?= base_url('pesanan_saya/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                     <td><?= $value->tgl_order ?></td>
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
@@ -76,7 +76,7 @@
                             </tr>
                             <?php foreach ($diproses as $key => $value) { ?>
                                 <tr>
-                                    <td><?= $value->no_order ?></td>
+                                    <td><a href="<?= base_url('pesanan_saya/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                     <td><?= $value->tgl_order ?></td>
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
@@ -103,7 +103,7 @@
                             </tr>
                             <?php foreach ($dikirim as $key => $value) { ?>
                                 <tr>
-                                    <td><?= $value->no_order ?></td>
+                                    <td><a href="<?= base_url('pesanan_saya/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                     <td><?= $value->tgl_order ?></td>
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>
@@ -135,7 +135,7 @@
                             </tr>
                             <?php foreach ($selesai as $key => $value) { ?>
                                 <tr>
-                                    <td><?= $value->no_order ?></td>
+                                    <td><a href="<?= base_url('pesanan_saya/detail_pesanan/' . $value->id_transaksi) ?>"><?= $value->no_order ?></a></td>
                                     <td><?= $value->tgl_order ?></td>
                                     <td>
                                         <b><?= $value->expedisi ?></b><br>

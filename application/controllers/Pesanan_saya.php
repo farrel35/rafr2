@@ -10,7 +10,7 @@ class Pesanan_saya extends CI_Controller
         parent::__construct();
         $this->load->model('m_transaksi');
         $this->load->model('m_pesanan_masuk');
-        
+        $this->load->model('m_admin');
     }
 
     public function index()
@@ -23,6 +23,17 @@ class Pesanan_saya extends CI_Controller
             'dikirim' => $this->m_transaksi->dikirim(),
             'selesai' => $this->m_transaksi->selesai(),
             'isi' => 'v_pesanan_saya'
+        );
+        $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+    }
+
+    public function detail_pesanan($id_transaksi)
+    {
+        $data = array(
+            'title' => 'Detail Pesanan',
+            'detail' => $this->m_admin->detail($id_transaksi),
+            'detail_pesanan' => $this->m_admin->detail_pesanan($id_transaksi),
+            'isi' => 'v_detail_pesanan_saya'
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
     }
