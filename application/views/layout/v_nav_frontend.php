@@ -93,13 +93,20 @@
                         <img src="<?= base_url() ?>template/dist/img/user3-128x128.jpg" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
                     </a>
                 <?php } else { ?>
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <span class="brand-text font-weight-light"><?= $this->session->userdata('nama_pelanggan') ?></span>
-                        <img src="<?= base_url('assets/image_pelanggan/') . $this->session->userdata('image') ?>" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
-                    </a>
+                    <?php if ($this->session->userdata('image') == "") { ?>
+                        <a class="nav-link" data-toggle="dropdown" href="#">
+                            <span class="brand-text font-weight-light"><?= $this->session->userdata('nama_pelanggan') ?></span>
+                            <img src="<?= base_url() ?>template/dist/img/user3-128x128.jpg" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        </a>
+                    <?php } else { ?>
+                        <a class="nav-link" data-toggle="dropdown" href="#">
+                            <span class="brand-text font-weight-light"><?= $this->session->userdata('nama_pelanggan') ?></span>
+                            <img src="<?= base_url('assets/image_pelanggan/') . $this->session->userdata('image') ?>" alt="" class="brand-image img-circle elevation-3" style="opacity: .8">
+                        </a>
+                    <?php } ?>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                         <div class="dropdown-divider"></div>
-                        <a href="<?= base_url('pelanggan/akun') ?>" class="dropdown-item">
+                        <a href="<?= base_url('pelanggan/akun/' . $this->session->userdata('id_pelanggan')) ?>" class="dropdown-item">
                             <i class="fas fa-user"></i> Akun Saya
                         </a>
                         <div class="dropdown-divider"></div>
@@ -127,7 +134,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?= base_url()?>">RAFR VapeStore</a></li>
+                        <li class="breadcrumb-item"><a href="<?= base_url() ?>">RAFR VapeStore</a></li>
                         <li class="breadcrumb-item"><a href="#"><?= $title ?></a></li>
                     </ol>
                 </div><!-- /.col -->

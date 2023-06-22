@@ -94,17 +94,94 @@ class Pelanggan extends CI_Controller
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
     }
 
-    public function logout(){
+    public function logout()
+    {
         $this->pelanggan_login->logout();
     }
 
-    public function akun()
+    public function akun($id_pelanggan)
     {
         //proteksi halaman
 
         $this->pelanggan_login->proteksi_halaman();
+
+        $this->form_validation->set_rules(
+            'nama_pelanggan',
+            'Nama',
+            'required',
+            array(
+                'required' => '%s Harus diisi!'
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'email',
+            'Email',
+            'required',
+            array(
+                'required' => '%s Harus diisi!'
+            )
+        );
+
+        $this->form_validation->set_rules(
+            'password',
+            'Password',
+            'required',
+            array(
+                'required' => '%s Harus diisi!'
+            )
+        );
+
+        if ($this->form_validation->run() == TRUE) {
+            $config['upload_path'] = './assets/image_pelanggan/';
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $config['max_size']     = '2000';
+            $this->upload->initialize($config);
+            $field_name = 'image';
+            if (!$this->upload->do_upload($field_name)) {
+                $data = array(
+                    'title' => 'Akun Saya',
+                    'detail_akun' => $this->m_pelanggan->get_akun($id_pelanggan),
+                    'error_upload' => $this->upload->display_errors(),
+                    'isi' => 'v_akun'
+                );
+                $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+            } else {
+                $pelanggan = $this->m_pelanggan->get_akun($id_pelanggan);
+
+                if ($pelanggan->image != "") {
+                    unlink('./assets/image_pelanggan/' . $pelanggan->image);
+                }
+
+                $upload_data    = array('uploads' => $this->upload->data());
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './assets/image_pelanggan/' . $upload_data['uploads']['file_name'];
+                $this->load->library('image_lib', $config);
+                $data = array(
+                    'id_pelanggan' => $id_pelanggan,
+                    'nama_pelanggan' => $this->input->post('nama_pelanggan'),
+                    'email' => $this->input->post('email'),
+                    'password' => $this->input->post('password'),
+                    'image' => $upload_data['uploads']['file_name'],
+                );
+                $this->m_pelanggan->edit($data);
+                $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+                redirect('pelanggan/akun/' . $id_pelanggan);
+            }
+            // jika tidak ganti image
+            $data = array(
+                'id_pelanggan' => $id_pelanggan,
+                'nama_pelanggan' => $this->input->post('nama_pelanggan'),
+                'email' => $this->input->post('email'),
+                'password' => $this->input->post('password'),
+            );
+            $this->m_pelanggan->edit($data);
+            $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+            redirect('pelanggan/akun/' . $id_pelanggan);
+        }
         $data = array(
             'title' => 'Akun Saya',
+            'detail_akun' => $this->m_pelanggan->get_akun($id_pelanggan),
             'isi' => 'v_akun'
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
