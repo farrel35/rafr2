@@ -64,7 +64,7 @@
                                                                                     echo "active";
                                                                                 } ?>">
                          <i class="nav-icon fas fa-image"></i>
-                         <p>Gambar Barang</p>
+                         <p>Foto Barang</p>
                      </a>
                  </li>
 
