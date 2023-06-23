@@ -24,7 +24,6 @@ class Barang extends CI_Controller
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);
     }
-
     // Add a new item
     public function add()
     {

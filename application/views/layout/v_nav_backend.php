@@ -86,6 +86,16 @@
                      </a>
                  </li>
                  <li class="nav-item">
+                     <a href="<?= base_url('admin/rekening') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'rekening' and $this->uri->segment(1) == 'admin') {
+                                                                                    echo "active";
+                                                                                } ?>">
+                         <i class="nav-icon fas fa-credit-card"></i>
+                         <p>
+                             Rekening
+                         </p>
+                     </a>
+                 </li>
+                 <li class="nav-item">
                      <a href="<?= base_url('admin/setting') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'setting' and $this->uri->segment(1) == 'admin') {
                                                                                     echo "active";
                                                                                 } ?>">

@@ -86,6 +86,16 @@ class Admin extends CI_Controller
         }
     }
 
+    public function rekening()
+    {
+        $data = array(
+            'title' => 'Rekening',
+            'rekening' => $this->m_admin->rekening(),
+            'isi' => 'v_rekening'
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    }
+
     public function pesanan_masuk()
     {
         $data = array(
@@ -133,6 +143,39 @@ class Admin extends CI_Controller
         $this->m_pesanan_masuk->update_order($data);
         $this->session->set_flashdata('pesan', 'Pesanan berhasil dikirim');
         redirect('admin/pesanan_masuk');
+    }
+
+    public function add_rekening()
+    {
+        $data = array(
+            'nama_bank' => $this->input->post('nama_bank'),
+            'no_rekening' => $this->input->post('no_rekening'),
+            'atas_nama' => $this->input->post('atas_nama'),
+        );
+        $this->m_admin->add_rekening($data);
+        $this->session->set_flashdata('pesan', 'Data berhasil ditambahkan');
+        redirect('admin/rekening');
+    }
+
+    public function edit_rekening($id_rekening = NULL)
+    {
+        $data = array(
+            'id_rekening' => $id_rekening,
+            'nama_bank' => $this->input->post('nama_bank'),
+            'no_rekening' => $this->input->post('no_rekening'),
+            'atas_nama' => $this->input->post('atas_nama'),
+        );
+        $this->m_admin->edit_rekening($data);
+        $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+        redirect('admin/rekening');
+    }
+
+    public function delete_rekening($id_rekening = NULL)
+    {
+        $data = array('id_rekening' => $id_rekening);
+        $this->m_admin->delete_rekening($data);
+        $this->session->set_flashdata('pesan', 'Data berhasil dihapus');
+        redirect('admin/rekening');
     }
 }
 

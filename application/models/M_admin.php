@@ -56,6 +56,14 @@ class M_admin extends CI_Model
       return $this->db->get()->result();
    }
 
+   public function rekening()
+   {
+      $this->db->select('*');
+      $this->db->from('tb_rekening');
+
+      return $this->db->get()->result();
+   }
+
    public function detail_pesanan($id_transaksi)
    {
       $this->db->select('*');
@@ -80,5 +88,22 @@ class M_admin extends CI_Model
    {
       $this->db->where('id', $data['id']);
       $this->db->update('tb_setting', $data);
+   }
+
+   public function add_rekening($data)
+   {
+      $this->db->insert('tb_rekening', $data);
+   }
+
+   public function edit_rekening($data)
+   {
+      $this->db->where('id_rekening', $data['id_rekening']);
+      $this->db->update('tb_rekening', $data);
+   }
+
+   public function delete_rekening($data)
+   {
+      $this->db->where('id_rekening', $data['id_rekening']);
+      $this->db->delete('tb_rekening', $data);
    }
 }
