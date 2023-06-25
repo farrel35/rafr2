@@ -124,11 +124,20 @@ class Pelanggan extends CI_Controller
         );
 
         $this->form_validation->set_rules(
-            'password',
-            'Password',
+            'new_password',
+            'Password Baru',
             'required',
             array(
                 'required' => '%s Harus diisi!'
+            )
+        );
+        $this->form_validation->set_rules(
+            'ulangi_password_baru',
+            'Ulangi Password Baru',
+            'required|matches[new_password]',
+            array(
+                'required' => '%s Harus diisi!',
+                'matches' => 'Password tidak sama!'
             )
         );
 
@@ -161,7 +170,7 @@ class Pelanggan extends CI_Controller
                     'id_pelanggan' => $id_pelanggan,
                     'nama_pelanggan' => $this->input->post('nama_pelanggan'),
                     'email' => $this->input->post('email'),
-                    'password' => $this->input->post('password'),
+                    'password' => $this->input->post('new_password'),
                     'image' => $upload_data['uploads']['file_name'],
                 );
                 $this->m_pelanggan->edit($data);
@@ -173,7 +182,7 @@ class Pelanggan extends CI_Controller
                 'id_pelanggan' => $id_pelanggan,
                 'nama_pelanggan' => $this->input->post('nama_pelanggan'),
                 'email' => $this->input->post('email'),
-                'password' => $this->input->post('password'),
+                'password' => $this->input->post('new_password'),
             );
             $this->m_pelanggan->edit($data);
             $this->session->set_flashdata('pesan', 'Data berhasil diedit');
