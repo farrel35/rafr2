@@ -47,19 +47,19 @@ class M_admin extends CI_Model
       return $this->db->get('tb_pelanggan')->num_rows();
    }
 
+   public function rekening()
+   {
+      $this->db->select('*');
+      $this->db->from('tb_rekening');
+
+      return $this->db->get()->result();
+   }
+
    public function detail($id_transaksi)
    {
       $this->db->select('*');
       $this->db->from('tb_transaksi');
       $this->db->where('tb_transaksi.id_transaksi', $id_transaksi);
-
-      return $this->db->get()->result();
-   }
-
-   public function rekening()
-   {
-      $this->db->select('*');
-      $this->db->from('tb_rekening');
 
       return $this->db->get()->result();
    }

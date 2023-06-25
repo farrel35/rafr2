@@ -9,7 +9,7 @@ class M_pesanan_masuk extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_transaksi');
         $this->db->where('status_order=0');
-        $this->db->order_by('id_transaksi', 'desc');
+        $this->db->order_by('status_bayar', 'desc');
 
         return $this->db->get()->result();
     }

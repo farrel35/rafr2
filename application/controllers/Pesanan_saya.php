@@ -102,4 +102,12 @@ class Pesanan_saya extends CI_Controller
         $this->session->set_flashdata('pesan', 'Pesanan telah diterima');
         redirect('pesanan_saya');
     }
+
+    public function delete($id_transaksi = NULL)
+    {
+        $data = array('id_transaksi' => $id_transaksi);
+        $this->m_transaksi->delete($data);
+        $this->session->set_flashdata('pesan', 'Pesanan berhasil dihapus');
+        redirect('pesanan_saya');
+    }
 }

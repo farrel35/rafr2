@@ -20,7 +20,7 @@ class M_transaksi extends CI_Model
         $this->db->from('tb_transaksi');
         $this->db->where('id_pelanggan', $this->session->userdata('id_pelanggan'));
         $this->db->where('status_order=0');
-        $this->db->order_by('id_transaksi', 'desc');
+        $this->db->order_by('status_bayar', 'acs');
 
         return $this->db->get()->result();
     }
@@ -71,7 +71,7 @@ class M_transaksi extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tb_rekening');
-        
+
         return $this->db->get()->result();
     }
 
@@ -79,5 +79,11 @@ class M_transaksi extends CI_Model
     {
         $this->db->where('id_transaksi', $data['id_transaksi']);
         $this->db->update('tb_transaksi', $data);
+    }
+
+    public function delete($data)
+    {
+        $this->db->where('id_transaksi', $data['id_transaksi']);
+        $this->db->delete('tb_transaksi', $data);
     }
 }
