@@ -62,7 +62,7 @@
                                 <div class="card-body pt-0">
                                     <div class="row">
                                         <div class="col-12 text-center">
-                                            <img src="<?= base_url('assets/image/' . $value->image) ?>" class="img-fluid" width="250px">
+                                            <img src="<?= base_url('assets/image/' . $value->image) ?>" class="img-fluid" style="width: 250px; height: 250px; object-fit: cover;">
                                         </div>
                                     </div>
                                 </div>

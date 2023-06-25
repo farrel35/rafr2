@@ -52,7 +52,7 @@
 
             <div class="form-group">
                 <label>Deskripsi Barang</label>
-                <textarea name="deskripsi" class="form-control" rows="5" placeholder="Deskripsi Barang"><?= set_value('harga') ?></textarea>
+                <textarea name="deskripsi" class="form-control" rows="5" placeholder="Deskripsi Barang"><?= set_value('deskripsi') ?></textarea>
             </div>
 
             <div class="row">
