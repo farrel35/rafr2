@@ -103,9 +103,14 @@ class Pesanan_saya extends CI_Controller
         redirect('pesanan_saya');
     }
 
-    public function delete($id_transaksi = NULL)
+    public function delete($id_transaksi, $no_order)
     {
-        $data = array('id_transaksi' => $id_transaksi);
+        $decodedNoOrder = urldecode($no_order);
+        $data = array(
+            'id_transaksi' => $id_transaksi,
+            'no_order' => $decodedNoOrder
+        );
+
         $this->m_transaksi->delete($data);
         $this->session->set_flashdata('pesan', 'Pesanan berhasil dihapus');
         redirect('pesanan_saya');

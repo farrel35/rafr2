@@ -85,5 +85,8 @@ class M_transaksi extends CI_Model
     {
         $this->db->where('id_transaksi', $data['id_transaksi']);
         $this->db->delete('tb_transaksi', $data);
+
+        $this->db->where('no_order', $data['no_order']);
+        $this->db->delete('tb_detail_transaksi');
     }
 }

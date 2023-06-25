@@ -207,7 +207,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                    <a href="<?= base_url('pesanan_saya/delete/' . $value->id_transaksi) ?>" type="button" class="btn btn-primary">Ya</a>
+                    <a href="<?= base_url('pesanan_saya/delete/' . $value->id_transaksi . '/' . urlencode($value->no_order)) ?>" type="button" class="btn btn-primary">Ya</a>
                 </div>
             </div>
             <!-- /.modal-content -->
