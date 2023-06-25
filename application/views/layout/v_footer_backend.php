@@ -7,13 +7,13 @@
 </div>
 <!-- /.content-wrapper -->
 <!-- Main Footer -->
-<footer class="main-footer no-print">
+<footer class="main-footer no-print text-center">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
         <!-- Anything you want -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2023 <a href="<?= base_url()?>">Farrel Ardian</a></strong>.
+    <strong>Copyright &copy; 2023 <a href="<?= base_url()?>">RAFR VapeStore</a></strong>.
 </footer>
 </div>
 <!-- ./wrapper -->
