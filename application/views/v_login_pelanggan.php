@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" name="password" value="<?= set_value('password')?>" class="form-control" placeholder="Password">
+                        <input type="password" name="password" minlength="8" value="<?= set_value('password')?>" class="form-control" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

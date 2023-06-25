@@ -14,18 +14,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-
--- Dumping database structure for db_rafr
-CREATE DATABASE IF NOT EXISTS `db_rafr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
-USE `db_rafr`;
-
 -- Dumping structure for table db_rafr.tb_barang
 CREATE TABLE IF NOT EXISTS `tb_barang` (
   `id_barang` int(11) NOT NULL AUTO_INCREMENT,
   `nama_barang` varchar(255) NOT NULL,
   `id_kategori` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
-  `deskripsi` mediumtext NOT NULL,
+  `deskripsi` longtext NOT NULL,
   `image` text DEFAULT NULL,
   `berat` int(11) NOT NULL,
   PRIMARY KEY (`id_barang`)
@@ -103,17 +98,16 @@ CREATE TABLE IF NOT EXISTS `tb_pelanggan` (
 -- Dumping structure for table db_rafr.tb_rekening
 CREATE TABLE IF NOT EXISTS `tb_rekening` (
   `id_rekening` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_bank` varchar(25) DEFAULT NULL,
+  `nama_bank` varchar(50) DEFAULT NULL,
   `no_rekening` varchar(25) DEFAULT NULL,
   `atas_nama` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`id_rekening`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_rafr.tb_rekening: ~3 rows (approximately)
+-- Dumping data for table db_rafr.tb_rekening: ~2 rows (approximately)
 INSERT INTO `tb_rekening` (`id_rekening`, `nama_bank`, `no_rekening`, `atas_nama`) VALUES
-	(1, 'Bank Mandiri', '132-003600-0009', 'Farrel Ardian'),
-	(2, 'Bank Central Asia (BCA)', '6280-66-9600', 'Farrel Ardian'),
-	(3, 'Bank Negara Indonesia (BN', '019-886-9291', 'Farrel Ardian');
+	(1, 'Bank Mandiri', '132-003600-0009', 'RAFR'),
+	(2, 'Bank Central Asia (BCA)', '6280-66-9600', 'RAFR');
 
 -- Dumping structure for table db_rafr.tb_setting
 CREATE TABLE IF NOT EXISTS `tb_setting` (
@@ -168,9 +162,11 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
   `password` varchar(25) DEFAULT NULL,
   `level_user` int(1) DEFAULT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Dumping data for table db_rafr.tb_user: ~0 rows (approximately)
+-- Dumping data for table db_rafr.tb_user: ~1 rows (approximately)
+INSERT INTO `tb_user` (`id_user`, `nama_user`, `username`, `password`, `level_user`) VALUES
+	(1, 'Admin', 'admin', 'admin', 1);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
