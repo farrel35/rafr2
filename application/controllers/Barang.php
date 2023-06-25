@@ -160,14 +160,18 @@ class Barang extends CI_Controller
             $this->upload->initialize($config);
             $field_name = "image";
             if (!$this->upload->do_upload($field_name)) {
+                // jika tidak ganti image
                 $data = array(
-                    'title' => 'Edit Barang',
-                    'kategori' => $this->m_kategori->get_allData(),
-                    'barang' => $this->m_barang->get_Data($id_barang),
-                    'error_upload' => $this->upload->display_errors(),
-                    'isi' => 'barang/v_edit'
+                    'id_barang' => $id_barang,
+                    'nama_barang' => $this->input->post('nama_barang'),
+                    'id_kategori' => $this->input->post('id_kategori'),
+                    'harga' => $this->input->post('harga'),
+                    'berat' => $this->input->post('berat'),
+                    'deskripsi' => $this->input->post('deskripsi'),
                 );
-                $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+                $this->m_barang->edit($data);
+                $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+                redirect('barang');
             } else {
                 //hapus image
                 $barang = $this->m_barang->get_Data($id_barang);
@@ -193,18 +197,6 @@ class Barang extends CI_Controller
                 $this->session->set_flashdata('pesan', 'Data berhasil diedit');
                 redirect('barang');
             }
-            // jika tidak ganti image
-            $data = array(
-                'id_barang' => $id_barang,
-                'nama_barang' => $this->input->post('nama_barang'),
-                'id_kategori' => $this->input->post('id_kategori'),
-                'harga' => $this->input->post('harga'),
-                'berat' => $this->input->post('berat'),
-                'deskripsi' => $this->input->post('deskripsi'),
-            );
-            $this->m_barang->edit($data);
-            $this->session->set_flashdata('pesan', 'Data berhasil diedit');
-            redirect('barang');
         }
 
         $data = array(

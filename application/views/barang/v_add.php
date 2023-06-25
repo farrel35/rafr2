@@ -70,8 +70,8 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-sm">Add Barang</button>
                 <a href="<?= base_url('barang') ?>" class="btn btn-success btn-sm">Kembali</a>
+                <button type="submit" class="btn btn-primary btn-sm">Add Barang</button>
             </div>
 
 

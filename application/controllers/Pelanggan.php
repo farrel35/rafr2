@@ -157,13 +157,30 @@ class Pelanggan extends CI_Controller
 
 
             if (!$this->upload->do_upload($field_name)) {
-                $data = array(
-                    'title' => 'Akun Saya',
-                    'detail_akun' => $this->m_pelanggan->get_akun($id_pelanggan),
-                    'error_upload' => $this->upload->display_errors(),
-                    'isi' => 'v_akun'
+                if (!empty($password)) {
+                    $data = array(
+                        'id_pelanggan' => $id_pelanggan,
+                        'nama_pelanggan' => $nama_pelanggan,
+                        'email' => $email,
+                        'password' => $password,
+                    );
+                } else {
+                    $data = array(
+                        'id_pelanggan' => $id_pelanggan,
+                        'nama_pelanggan' => $nama_pelanggan,
+                        'email' => $email,
+                    );
+                }
+
+                $array = array(
+                    'email' => $email,
+                    'nama_pelanggan' => $nama_pelanggan,
                 );
-                $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
+
+                $this->session->set_userdata($array);
+                $this->m_pelanggan->edit($data);
+                $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+                redirect('pelanggan/akun/' . $id_pelanggan);
             } else {
                 $pelanggan = $this->m_pelanggan->get_akun($id_pelanggan);
 
@@ -204,31 +221,6 @@ class Pelanggan extends CI_Controller
 
                 redirect('pelanggan/akun/' . $id_pelanggan);
             }
-            // jika tidak ganti image
-            if (!empty($password)) {
-                $data = array(
-                    'id_pelanggan' => $id_pelanggan,
-                    'nama_pelanggan' => $nama_pelanggan,
-                    'email' => $email,
-                    'password' => $password,
-                );
-            } else {
-                $data = array(
-                    'id_pelanggan' => $id_pelanggan,
-                    'nama_pelanggan' => $nama_pelanggan,
-                    'email' => $email,
-                );
-            }
-
-            $array = array(
-                'email' => $email,
-                'nama_pelanggan' => $nama_pelanggan,
-            );
-
-            $this->session->set_userdata($array);
-            $this->m_pelanggan->edit($data);
-            $this->session->set_flashdata('pesan', 'Data berhasil diedit');
-            redirect('pelanggan/akun/' . $id_pelanggan);
         }
         $data = array(
             'title' => 'Akun Saya',

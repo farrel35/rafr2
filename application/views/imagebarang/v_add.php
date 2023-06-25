@@ -53,8 +53,8 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-sm">Add Image</button>
                 <a href="<?= base_url('imagebarang') ?>" class="btn btn-success btn-sm">Kembali</a>
+                <button type="submit" class="btn btn-primary btn-sm">Add Image</button>
             </div>
 
             <?php echo form_close() ?>
@@ -68,7 +68,6 @@
                         </div>
                         <p for="">Keterangan : <?= $value->keterangan ?></p>
                         <button data-toggle="modal" data-target="#delete<?= $value->id_image ?>" class="btn btn-danger btn-xs btn-block"><i class="fas fa-trash"></i> Delete</button>
-
                     </div>
                 <?php } ?>
             </div>
