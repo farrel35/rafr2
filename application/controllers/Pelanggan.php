@@ -126,7 +126,6 @@ class Pelanggan extends CI_Controller
         $this->form_validation->set_rules(
             'new_password',
             'Password Baru',
-            'required',
             array(
                 'required' => '%s Harus diisi!'
             )
@@ -134,7 +133,7 @@ class Pelanggan extends CI_Controller
         $this->form_validation->set_rules(
             'ulangi_password_baru',
             'Ulangi Password Baru',
-            'required|matches[new_password]',
+            'matches[new_password]',
             array(
                 'required' => '%s Harus diisi!',
                 'matches' => 'Password tidak sama!'
