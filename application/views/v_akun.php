@@ -39,11 +39,11 @@
 
                 <div class="form-group">
                     <label>Password baru</label>
-                    <input type="password" name="new_password" class="form-control" placeholder="Password" value="<?= set_value('new_password') ?>">
+                    <input type="password" name="new_password" minlength="8" class="form-control" placeholder="Password" value="<?= set_value('new_password') ?>">
                 </div>
                 <div class="form-group">
                     <label>Ulangi password baru</label>
-                    <input type="password" name="ulangi_password_baru" class="form-control" placeholder="Password" value="<?= set_value('ulangi_password_baru') ?>">
+                    <input type="password" name="ulangi_password_baru" minlength="8" class="form-control" placeholder="Password" value="<?= set_value('ulangi_password_baru') ?>">
                 </div>
 
                 <div class="row">

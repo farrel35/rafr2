@@ -104,6 +104,9 @@ class Pelanggan extends CI_Controller
         //proteksi halaman
 
         $this->pelanggan_login->proteksi_halaman();
+        $nama_pelanggan = $this->input->post('nama_pelanggan');
+        $email = $this->input->post('email');
+        $password = $this->input->post('new_password');
 
         $this->form_validation->set_rules(
             'nama_pelanggan',
@@ -123,29 +126,36 @@ class Pelanggan extends CI_Controller
             )
         );
 
-        $this->form_validation->set_rules(
-            'new_password',
-            'Password Baru',
-            array(
-                'required' => '%s Harus diisi!'
-            )
-        );
-        $this->form_validation->set_rules(
-            'ulangi_password_baru',
-            'Ulangi Password Baru',
-            'matches[new_password]',
-            array(
-                'required' => '%s Harus diisi!',
-                'matches' => 'Password tidak sama!'
-            )
-        );
+        if (!empty($password)) {
+            $this->form_validation->set_rules(
+                'new_password',
+                'Password Baru',
+                'required',
+                array(
+                    'required' => '%s Harus diisi!'
+                )
+            );
+
+            $this->form_validation->set_rules(
+                'ulangi_password_baru',
+                'Ulangi Password Baru',
+                'required|matches[new_password]',
+                array(
+                    'matches' => 'Password tidak sama!'
+                )
+            );
+        }
+
 
         if ($this->form_validation->run() == TRUE) {
             $config['upload_path'] = './assets/image_pelanggan/';
             $config['allowed_types'] = 'jpg|png|jpeg';
             $config['max_size']     = '2000';
             $this->upload->initialize($config);
+
             $field_name = 'image';
+
+
             if (!$this->upload->do_upload($field_name)) {
                 $data = array(
                     'title' => 'Akun Saya',
@@ -164,25 +174,58 @@ class Pelanggan extends CI_Controller
                 $upload_data    = array('uploads' => $this->upload->data());
                 $config['image_library'] = 'gd2';
                 $config['source_image'] = './assets/image_pelanggan/' . $upload_data['uploads']['file_name'];
+                $image = $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
-                $data = array(
-                    'id_pelanggan' => $id_pelanggan,
-                    'nama_pelanggan' => $this->input->post('nama_pelanggan'),
-                    'email' => $this->input->post('email'),
-                    'password' => $this->input->post('new_password'),
-                    'image' => $upload_data['uploads']['file_name'],
+                if (!empty($password)) {
+                    $data = array(
+                        'id_pelanggan' => $id_pelanggan,
+                        'nama_pelanggan' => $nama_pelanggan,
+                        'email' => $email,
+                        'password' => $password,
+                        'image' => $image,
+                    );
+                } else {
+                    $data = array(
+                        'id_pelanggan' => $id_pelanggan,
+                        'nama_pelanggan' => $nama_pelanggan,
+                        'email' => $email,
+                        'image' => $image,
+                    );
+                }
+                $array = array(
+                    'email' => $email,
+                    'nama_pelanggan' => $nama_pelanggan,
+                    'image' => $image,
                 );
+
+                $this->session->set_userdata($array);
                 $this->m_pelanggan->edit($data);
                 $this->session->set_flashdata('pesan', 'Data berhasil diedit');
+
                 redirect('pelanggan/akun/' . $id_pelanggan);
             }
             // jika tidak ganti image
-            $data = array(
-                'id_pelanggan' => $id_pelanggan,
-                'nama_pelanggan' => $this->input->post('nama_pelanggan'),
-                'email' => $this->input->post('email'),
-                'password' => $this->input->post('new_password'),
+            if (!empty($password)) {
+                $data = array(
+                    'id_pelanggan' => $id_pelanggan,
+                    'nama_pelanggan' => $nama_pelanggan,
+                    'email' => $email,
+                    'password' => $password,
+                );
+            } else {
+                $data = array(
+                    'id_pelanggan' => $id_pelanggan,
+                    'nama_pelanggan' => $nama_pelanggan,
+                    'email' => $email,
+                );
+            }
+
+            $array = array(
+                'email' => $email,
+                'nama_pelanggan' => $nama_pelanggan,
             );
+
+            $this->session->set_userdata($array);
             $this->m_pelanggan->edit($data);
             $this->session->set_flashdata('pesan', 'Data berhasil diedit');
             redirect('pelanggan/akun/' . $id_pelanggan);
