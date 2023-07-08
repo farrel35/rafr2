@@ -87,12 +87,23 @@
                  </li>
 
                  <li class="nav-item">
+                     <a href="<?= base_url('pelanggan') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'pelanggan') {
+                                                                                echo "active";
+                                                                            } ?>">
+                         <i class="nav-icon fas fa-users"></i>
+                         <p>
+                             Pelanggan
+                         </p>
+                     </a>
+                 </li>
+
+                 <li class="nav-item">
                      <a href="<?= base_url('user') ?>" class="nav-link <?php if ($this->uri->segment(1) == 'user') {
                                                                             echo "active";
                                                                         } ?>">
                          <i class="nav-icon fas fa-users"></i>
                          <p>
-                             User
+                             Admin
                          </p>
                      </a>
                  </li>
@@ -107,7 +118,7 @@
                          </p>
                      </a>
                  </li>
-                 
+
                  <li class="nav-item">
                      <a href="<?= base_url('admin/setting') ?>" class="nav-link <?php if ($this->uri->segment(2) == 'setting' and $this->uri->segment(1) == 'admin') {
                                                                                     echo "active";

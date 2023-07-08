@@ -12,6 +12,16 @@ class Pelanggan extends CI_Controller
         $this->load->model('m_auth');
     }
 
+    public function index()
+    {
+        $data = array(
+            'title' => 'Pelanggan',
+            'pelanggan' => $this->m_pelanggan->get_allPelanggan(),
+            'isi' => 'v_pelanggan'
+        );
+        $this->load->view('layout/v_wrapper_backend', $data, FALSE);
+    }
+
     public function register()
     {
         $this->form_validation->set_rules(

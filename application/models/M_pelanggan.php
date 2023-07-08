@@ -9,11 +9,19 @@ class M_pelanggan extends CI_Model
         $this->db->insert('tb_pelanggan', $data);
     }
 
-    public function get_akun($id_pelanggan){
+    public function get_allPelanggan()
+    {
+        $this->db->select('*');
+        $this->db->from('tb_pelanggan');
+        return $this->db->get()->result();
+    }
+
+    public function get_akun($id_pelanggan)
+    {
         $this->db->select('*');
         $this->db->from('tb_pelanggan');
         $this->db->where('id_pelanggan', $id_pelanggan);
-        
+
         return $this->db->get()->row();
     }
 
