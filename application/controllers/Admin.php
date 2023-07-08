@@ -115,6 +115,7 @@ class Admin extends CI_Controller
             'title' => 'Detail Pesanan',
             'detail' => $this->m_admin->detail($id_transaksi),
             'detail_pesanan' => $this->m_admin->detail_pesanan($id_transaksi),
+            'setting' => $this->m_admin->data_Setting(),
             'isi' => 'v_detail_pesanan'
         );
         $this->load->view('layout/v_wrapper_backend', $data, FALSE);

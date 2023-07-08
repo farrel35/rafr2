@@ -61,7 +61,7 @@ class M_admin extends CI_Model
       $this->db->from('tb_transaksi');
       $this->db->where('tb_transaksi.id_transaksi', $id_transaksi);
 
-      return $this->db->get()->result();
+      return $this->db->get()->row();
    }
 
    public function detail_pesanan($id_transaksi)

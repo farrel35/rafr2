@@ -67,9 +67,9 @@
                 </table>
 
                 <div class="row">
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-success btn-flat"><i class="fa fa-save"></i> Update Cart</button>
-                        <a href="<?= base_url('keranjang/clear') ?>" class="btn btn-danger btn-flat"><i class="fa fa-recycle"></i> Clear Cart</a>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success btn-flat"><i class="fa fa-save"></i> Perbarui Keranjang</button>
+                        <a href="<?= base_url('keranjang/clear') ?>" class="btn btn-danger btn-flat"><i class="fa fa-recycle"></i> Hapus Keranjang</a>
                         <a href="<?= base_url('keranjang/checkout') ?>" class="btn btn-primary btn-flat"><i class="fa fa-check-square"></i> Checkout</a>
                     </div>
                 </div>

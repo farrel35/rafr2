@@ -78,7 +78,7 @@
                             </div>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a href="<?= base_url('keranjang') ?>" class="dropdown-item dropdown-footer">View Cart</a>
+                        <a href="<?= base_url('keranjang') ?>" class="dropdown-item dropdown-footer">Keranjang</a>
                         <a href="<?= base_url('keranjang/checkout') ?>" class="dropdown-item dropdown-footer">Checkout</a>
                     <?php } ?>
                     <!-- Keranjang End -->

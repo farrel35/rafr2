@@ -62,7 +62,7 @@
 
                 <div class="form-group">
                     <a href="<?= base_url('home') ?>" class="btn btn-success btn-sm">Kembali</a>
-                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                 </div>
 
 

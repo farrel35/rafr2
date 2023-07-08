@@ -1,11 +1,11 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Data User</h3>
+            <h3 class="card-title">Data Admin</h3>
 
             <div class="card-tools">
                 <button data-toggle="modal" data-target="#add" type="button" class="btn btn-primary btn-sm">
-                    <i class="fas fa-plus"></i>Add
+                    <i class="fas fa-plus"></i>Tambah
                 </button>
             </div>
             <!-- /.card-tools -->
@@ -65,7 +65,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Add User</h4>
+                <h4 class="modal-title">Tambah Admin</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -101,7 +101,7 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Add</button>
+                <button type="submit" class="btn btn-primary">Tambah</button>
             </div>
             <?php
             echo form_close('');
@@ -157,7 +157,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
                 <?php
                 echo form_close('');
@@ -175,7 +175,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete <?= $value->nama_user ?></h4>
+                    <h4 class="modal-title">Hapus <?= $value->nama_user ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -185,7 +185,7 @@
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-primary">Delete</a>
+                    <a href="<?= base_url('user/delete/' . $value->id_user) ?>" class="btn btn-primary">Hapus</a>
                 </div>
 
             </div>

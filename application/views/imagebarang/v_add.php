@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card card-primary">
         <div class="card-header">
-            <h3 class="card-title">Add Image Barang : <?= $barang->nama_barang ?></h3>
+            <h3 class="card-title">Tambah Foto Barang : <?= $barang->nama_barang ?></h3>
 
             <div class="card-tools">
 
@@ -36,7 +36,7 @@
 
             <div class="row">
                 <div class="form-group">
-                    <label>Keterangan Image</label>
+                    <label>Keterangan Foto</label>
                     <input name="keterangan" class="form-control" placeholder="Keterangan Image" value="<?= set_value('keterangan') ?>">
                 </div>
                 <div class="col-sm-4">
@@ -54,7 +54,7 @@
 
             <div class="form-group">
                 <a href="<?= base_url('imagebarang') ?>" class="btn btn-success btn-sm">Kembali</a>
-                <button type="submit" class="btn btn-primary btn-sm">Add Image</button>
+                <button type="submit" class="btn btn-primary btn-sm">Tambah Foto</button>
             </div>
 
             <?php echo form_close() ?>
@@ -67,7 +67,7 @@
                             <img src="<?= base_url('assets/imagebarang/' . $value->image) ?>" id="image_load" width="250px" height="250px">
                         </div>
                         <p for="">Keterangan : <?= $value->keterangan ?></p>
-                        <button data-toggle="modal" data-target="#delete<?= $value->id_image ?>" class="btn btn-danger btn-xs btn-block"><i class="fas fa-trash"></i> Delete</button>
+                        <button data-toggle="modal" data-target="#delete<?= $value->id_image ?>" class="btn btn-danger btn-xs btn-block"><i class="fas fa-trash"></i> Hapus</button>
                     </div>
                 <?php } ?>
             </div>
@@ -82,7 +82,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Delete <?= $value->keterangan ?></h4>
+                    <h4 class="modal-title">Hapus <?= $value->keterangan ?></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -91,11 +91,11 @@
                     <div class="form-group">
                         <img src="<?= base_url('assets/imagebarang/' . $value->image) ?>" id="image_load" width="250px" height="250px">
                     </div>
-                    <h4>Apakah anda yakin ingin menghapus image ini?</h1>
+                    <h4>Apakah anda yakin ingin menghapus foto ini?</h1>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <a href="<?= base_url('imagebarang/delete/' . $value->id_barang . '/' . $value->id_image) ?>" class="btn btn-primary">Delete</a>
+                    <a href="<?= base_url('imagebarang/delete/' . $value->id_barang . '/' . $value->id_image) ?>" class="btn btn-primary">Hapus</a>
                 </div>
 
             </div>
