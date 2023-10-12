@@ -64,7 +64,7 @@
                 <?php foreach ($imagebarang as $key => $value) { ?>
                     <div class="col-sm-3">
                         <div class="form-group text-center">
-                            <img src="<?= base_url('assets/imagebarang/' . $value->image) ?>" id="image_load" width="250px" height="250px">
+                            <img src="<?= base_url('assets/image_barang/' . $value->image) ?>" id="image_load" width="250px" height="250px">
                         </div>
                         <p for="">Keterangan : <?= $value->keterangan ?></p>
                         <button data-toggle="modal" data-target="#delete<?= $value->id_image ?>" class="btn btn-danger btn-xs btn-block"><i class="fas fa-trash"></i> Hapus</button>
@@ -89,7 +89,7 @@
                 </div>
                 <div class="modal-body text-center">
                     <div class="form-group">
-                        <img src="<?= base_url('assets/imagebarang/' . $value->image) ?>" id="image_load" width="250px" height="250px">
+                        <img src="<?= base_url('assets/image_barang/' . $value->image) ?>" id="image_load" width="250px" height="250px">
                     </div>
                     <h4>Apakah anda yakin ingin menghapus foto ini?</h1>
                 </div>

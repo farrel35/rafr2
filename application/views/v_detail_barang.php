@@ -12,7 +12,7 @@
                         <div class="col-12 product-image-thumbs">
                             <div class="product-image-thumb active"><img src="<?= base_url('assets/image/' . $barang->image) ?>" alt="Product Image"></div>
                             <?php foreach ($image as $key => $value) { ?>
-                                <div class="product-image-thumb"><img src="<?= base_url('assets/imagebarang/' . $value->image) ?>" alt="Product Image"></div>
+                                <div class="product-image-thumb"><img src="<?= base_url('assets/image_barang/' . $value->image) ?>" alt="Product Image"></div>
                             <?php } ?>
 
                         </div>

@@ -33,7 +33,7 @@ class Imagebarang extends CI_Controller
         );
 
         if ($this->form_validation->run() == TRUE) {
-            $config['upload_path'] = './assets/imagebarang/';
+            $config['upload_path'] = './assets/image_barang/';
             $config['allowed_types'] = 'jpg|png|jpeg';
             $config['max_size']     = '2000';
             $this->upload->initialize($config);
@@ -50,7 +50,7 @@ class Imagebarang extends CI_Controller
             } else {
                 $upload_data    = array('uploads' => $this->upload->data());
                 $config['image_library'] = 'gd2';
-                $config['source_image'] = './assets/imagebarang/' . $upload_data['uploads']['file_name'];
+                $config['source_image'] = './assets/image_barang/' . $upload_data['uploads']['file_name'];
                 $this->load->library('image_lib', $config);
                 $data = array(
                     'id_barang' => $id_barang,
@@ -79,7 +79,7 @@ class Imagebarang extends CI_Controller
         $image = $this->m_imagebarang->get_Data($id_image);
 
         if ($image->image != "") {
-            unlink('./assets/imagebarang/' . $image->image);
+            unlink('./assets/image_barang/' . $image->image);
         }
 
         $data = array('id_image' => $id_image);
