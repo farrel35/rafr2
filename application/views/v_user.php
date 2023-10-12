@@ -48,8 +48,14 @@
                                                     }
                                                     ?></td>
                             <td class="text-center">
-                                <button data-toggle="modal" data-target="#edit<?= $value->id_user ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>
-                                <button data-toggle="modal" data-target="#delete<?= $value->id_user ?>" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>
+                                <?php
+                                $sessionNamaUser = $this->session->userdata('nama_user');
+
+                                if ($value->nama_user != $sessionNamaUser) {
+                                    echo '<button data-toggle="modal" data-target="#edit' . $value->id_user . '" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></button>';
+                                    echo '<button data-toggle="modal" data-target="#delete' . $value->id_user . '" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>';
+                                }
+                                ?>
                             </td>
                         </tr>
                     <?php } ?>

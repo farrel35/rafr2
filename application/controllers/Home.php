@@ -10,6 +10,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('m_home');
+        $this->load->model('m_rating');
     }
 
     public function index()
@@ -39,6 +40,7 @@ class Home extends CI_Controller
             'title' => 'Detail Barang',
             'image' => $this->m_home->get_Image($id_barang),
             'barang' => $this->m_home->get_detailBarang($id_barang),
+            'rating' => $this->m_rating->get_ratings($id_barang),
             'isi' => 'v_detail_barang'
         );
         $this->load->view('layout/v_wrapper_frontend', $data, FALSE);
