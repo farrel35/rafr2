@@ -68,71 +68,74 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
-                        <div class="rating">
-                            <button class="btn btn-default btn-sm" data-rating="1"><i class="fa fa-star"></i></button>
-                            <button class="btn btn-default btn-sm" data-rating="2"><i class="fa fa-star"></i></button>
-                            <button class="btn btn-default btn-sm" data-rating="3"><i class="fa fa-star"></i></button>
-                            <button class="btn btn-default btn-sm" data-rating="4"><i class="fa fa-star"></i></button>
-                            <button class="btn btn-default btn-sm" data-rating="5"><i class="fa fa-star"></i></button>
-                        </div>
+                        <?php if ($this->session->userdata('nama_pelanggan') != '') : ?>
 
-                        <div class="form-group">
-                            <label for="review">Ulasan:</label>
-                            <textarea class="form-control" id="review" name="review" rows="4"></textarea>
-                        </div>
+                            <div class="rating">
+                                <button class="btn btn-default btn-sm" data-rating="1"><i class="fa fa-star"></i></button>
+                                <button class="btn btn-default btn-sm" data-rating="2"><i class="fa fa-star"></i></button>
+                                <button class="btn btn-default btn-sm" data-rating="3"><i class="fa fa-star"></i></button>
+                                <button class="btn btn-default btn-sm" data-rating="4"><i class="fa fa-star"></i></button>
+                                <button class="btn btn-default btn-sm" data-rating="5"><i class="fa fa-star"></i></button>
+                            </div>
 
-                        <button type="button" class="btn btn-primary" id="submit-review">Submit Ulasan</button>
-                    </div>
-                    <div class="col-12">
+                            <div class="form-group">
+                                <label for="review">Ulasan:</label>
+                                <textarea class="form-control" id="review" name="review" rows="4"></textarea>
+                            </div>
+
+                            <button type="button" class="btn btn-primary" id="submit-review">Submit Ulasan</button>
+                        <?php endif; ?>
                         <?php if (!empty($rating)) : ?>
-                            <h4 class="my-3">Customer Review</h3>
-                                <table class="table table-striped projects">
-                                    <thead>
+                            <h4 class="my-3">Customer Review</h4>
+                            <table class="table table-striped projects">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10%">
+                                            Nama
+                                        </th>
+                                        <th style="width: 10%">
+                                            Rating
+                                        </th>
+                                        <th style="width: 10%">
+                                            Ulasan
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($rating as $ratings) { ?>
                                         <tr>
-                                            <th style="width: 10%">
-                                                Nama
-                                            </th>
-                                            <th style="width: 10%">
-                                                Rating
-                                            </th>
-                                            <th style="width: 10%">
-                                                Ulasan
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($rating as $ratings) { ?>
-                                            <tr>
-                                                <td>
-                                                    <?= $ratings->nama_pelanggan ?>
-                                                </td>
-                                                <td>
-                                                    <?php
-                                                    $star = $ratings->star; // Rating dari database (ganti ini dengan rating sesuai data dari database)
-                                                    for ($i = 1; $i <= 5; $i++) {
-                                                        if ($i <= $star) {
-                                                            echo '<i class="fa fa-star text-warning"></i>'; // Tampilkan bintang yang diberi warna
-                                                        } else {
-                                                            echo '<i class="fa fa-star text-secondary"></i>'; // Tampilkan bintang yang tidak diberi warna
-                                                        }
+                                            <td>
+                                                <?= $ratings->nama_pelanggan ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                $star = $ratings->star; // Rating dari database (ganti ini dengan rating sesuai data dari database)
+                                                for ($i = 1; $i <= 5; $i++) {
+                                                    if ($i <= $star) {
+                                                        echo '<i class="fa fa-star text-warning"></i>'; // Tampilkan bintang yang diberi warna
+                                                    } else {
+                                                        echo '<i class="fa fa-star text-secondary"></i>'; // Tampilkan bintang yang tidak diberi warna
                                                     }
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                    <?= $ratings->review ?>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                            <?php endif; ?>
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?= $ratings->review ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        <?php else : ?>
+                            <h3>Tidak ada ulasan.</h3>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <!-- /.card-body -->
         </div>
-        <!-- /.card -->
+        <!-- /.card-body -->
     </div>
+    <!-- /.card -->
 </div>
 <script>
     $(document).ready(function() {
